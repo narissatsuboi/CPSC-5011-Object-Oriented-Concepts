@@ -10,7 +10,6 @@ package com.tsuboin;
  */
 
 
-import java.time.LocalTime;
 import java.util.HashMap;
 
 public class Driver {
@@ -18,7 +17,6 @@ public class Driver {
     {
         String name = "Nars";
         String color = "blue";
-
         String my_greeting = "";
 
         // Populate hashmap to collect customized fields
@@ -31,5 +29,6 @@ public class Driver {
 
         // Generate custom greeting and print to console
         my_greeting = greeter.generateGreeting();
+        System.out.println(my_greeting);
     }
 }
