@@ -1,6 +1,6 @@
 package com.tsuboin;
 
-/**
+/*
  * Program displays a greeting to console. Includes a driver program
  * to store input to dictionary and pass to GreetingGenerator class.
  * Handles custom input.
@@ -31,5 +31,7 @@ public class Driver {
 
         // Generate custom greeting and print to console
         my_greeting = greeter.generateGreeting();
+
+        System.out.println(my_greeting);
     }
 }

@@ -57,6 +57,8 @@ public class GreetingGenerator
 	public String generateGreeting()
 	{
 		String template_str = "$daypart $name - that's a nice $color shirt.";
+		template_str = template_str.replace("$daypart", custom_fields.get(
+			"daypart"));
 		template_str = template_str.replace("$name", custom_fields.get(
 			"name"));
 		template_str = template_str.replace("$color", custom_fields.get(
