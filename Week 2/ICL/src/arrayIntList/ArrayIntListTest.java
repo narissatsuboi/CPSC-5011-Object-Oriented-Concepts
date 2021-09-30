@@ -1,42 +1,88 @@
 /*
- * Sheila Oh
+ * Narissa Tsuboi
  * CPSC 5011, Seattle University
  * This is free and unencumbered software released into the public domain.
  */
 
 package arrayIntList;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
+import static org.junit.Assert.*;  // for assert statements
+import org.junit.Test; // for junit4
 
 /**
  * This JUnit testing program checks some of the basic features of our 
- * ArrayIntList. You can run it in Eclipse by right-clicking it in the 
- * Package Explorer and choosing Run As -> Junit Test.  
- * Reference: CSE 143, Winter 2011, Marty Stepp                                                               
- * @author ohsh
+ * ArrayIntList.
+ * @author Narissa Tsuboi
  */
 public class ArrayIntListTest {
 
+	/**
+	 * This test checks default constructor formed non-null
+	 * ArrayIntList object.
+	 */
+	@Test
+	public void testDefaultConstructor() {
+		// Arrange preconditions
+
+		// Act
+		var obj = new ArrayIntList();
+		// Assert
+		assertNotNull(obj);
+	}
+
+	/**
+	 * This test checks overloaded constructor of capacity 10 formed a
+	 * non-null ArrayIntList object.
+	 */
 	@Test
 	public void testConstructor() {
-		fail("Not yet implemented");
+		// Arrange preconditions
+
+		// Act
+		var obj = new ArrayIntList(10);
+		// Assert
+		assertNotNull(obj);
 	}
 
+	/**
+	 * This test checks that after adding a value to the list, the
+	 * size of the list is 1 greater than previous.
+	 */
 	@Test
 	public void testAddValue() {
-		fail("Not yet implemented");
+		var obj = new ArrayIntList(10);
+		var size_pre = obj.size();
+		obj.add(1);
+		assertEquals(size_pre + 1, obj.size());
 	}
 
+	/**
+	 * This test checks that a value is added at an index.
+	 * Preconditions include adding an index in range.
+	 */
 	@Test
 	public void testAddValueAtIndex() {
-		fail("Not yet implemented");
+		// Arrange preconditions
+		var testIndex = 5;
+		var testValue = 2;
+		var capacity = 6;
+		var obj = new ArrayIntList(capacity);
+
+		for (var i=0; i < capacity; i++) // fill arraylist
+		{ obj.add(0); }
+
+		// Act
+		obj.set(testIndex, testValue);
+		// Assert
+		assertEquals(testValue, obj.get(testIndex));
+
 	}
 
     /** 
-     * This test makes sure that the list enforces its precondition about                                       
-     * the legal indexes passed to the get method.  
-     * If an ArrayIndexOutOfBoundsException is NOT thrown, the test fails                                      
+     * This test makes sure that the list enforces its precondition
+     * about the legal indexes passed to the get method.
+     * If an ArrayIndexOutOfBoundsException is NOT thrown, the test
+     * fails.
      */
 	@Test(expected = ArrayIndexOutOfBoundsException.class) 
 	public void testGet() {
@@ -44,14 +90,31 @@ public class ArrayIntListTest {
         list.get(17);   // this should crash  
 	}
 
+	/**
+	 * This test checks that a value is set into the ArrayIntList.
+	 * Preconditions include setting the test index, value, capacity,
+	 * and fill it with default values before testing set.
+	 */
 	@Test
 	public void testSet() {
-		fail("Not yet implemented");
+		// Arrange preconditions
+		var testIndex = 5;
+		var testValue = 2;
+		var capacity = 6;
+		var obj = new ArrayIntList(capacity);
+
+		for (var i=0; i < capacity; i++) // fill arraylist
+		{ obj.add(0); }
+
+		// Act
+		obj.set(testIndex, testValue);
+		// Assert
+		assertEquals(testValue, obj.get(testIndex));
 	}
 
 	/**
-	 * Checks the basic functionality of the size method after adding 
-	 * a few elements.
+	 * This test checks the basic functionality of the size method
+	 * after adding a few elements.
 	 */
 	@Test
 	public void testSize() {
@@ -64,8 +127,8 @@ public class ArrayIntListTest {
 	}
 
     /**
-     * Checks the basic functionality of the isEmpty method after adding 
-     * and removing.                                                  
+     * Checks the basic functionality of the isEmpty method after
+     * adding and removing.
      */
 	@Test
 	public void testIsEmpty() {
@@ -93,8 +156,8 @@ public class ArrayIntListTest {
 	}
 
 	/** 
-	 * Checks the basic functionality of the indexOf method after adding 
-	 * a few elements.
+	 * Checks the basic functionality of the indexOf method after
+	 * adding a few elements.
 	 */
 	@Test
 	public void testIndexOf() {
