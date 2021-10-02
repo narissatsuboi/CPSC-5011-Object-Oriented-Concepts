@@ -5,7 +5,7 @@
  */
 
 
-package main;
+package com.tsuboin;
 
 public class Driver {
 

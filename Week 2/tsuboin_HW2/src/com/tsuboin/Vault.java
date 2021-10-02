@@ -4,7 +4,7 @@
  * This is free and unencumbered software released into the public domain.
  */
 
-package vault;
+package com.tsuboin;
 
 /*
   In addition the class that implements the Vault interface must include 

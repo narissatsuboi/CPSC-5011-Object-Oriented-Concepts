@@ -5,8 +5,7 @@
  */
 
 
-
-package encrypt;
+package com.tsuboin;
 
 import java.util.Random;
 

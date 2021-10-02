@@ -4,7 +4,7 @@
  * This is free and unencumbered software released into the public domain.
  */
 
-package encrypt;
+package com.tsuboin;
 
 public interface Encryptor {
 	
