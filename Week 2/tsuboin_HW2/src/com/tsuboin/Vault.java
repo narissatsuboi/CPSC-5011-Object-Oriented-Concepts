@@ -13,13 +13,22 @@ package com.tsuboin;
 	 public Vault(Encryptor e);
 */
 
+/**
+ * The Vault interface abstracts a digital password safe. It provides
+ * methods for user and password storage, retrieval, and updating.
+ *
+ * @author Narissa Tsuboi
+ * @version 1.0
+ */
+
 public interface Vault {
 	
 	/**
-	 * Add a new user to the vault (with no site passwords). For example, a 
-	 * username and password is supplied, and the system does no verification 
-	 * or checking except that the username and password must be in correct 
-	 * formats, and the username cannot already be in the vault.
+	 * Add a new user to the vault (with no site passwords). For
+	 * example, a username and password is supplied, and the system
+	 * does no verification or checking except that the username and
+	 * password must be in correct formats, and the username cannot
+	 * already be in the vault.
 	 * 
 	 * @param username The username to be added
 	 * @param password The password to be associated with this user

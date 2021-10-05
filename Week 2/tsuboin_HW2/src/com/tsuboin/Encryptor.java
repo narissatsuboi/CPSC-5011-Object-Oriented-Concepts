@@ -6,6 +6,16 @@
 
 package com.tsuboin;
 
+/**
+ * An encryption in the scope of this interface is a string modified
+ * to another state from its original form and then returned.
+ * A decryption is taking the modified string and returning it to its
+ * original form. The Encryption interface provides a string to string
+ * encryption operation and a string to string decryption operation.
+ *
+ * @author Narissa Tsuboi
+ * @version 1.0
+ */
 public interface Encryptor {
 	
 	/**
@@ -21,5 +31,4 @@ public interface Encryptor {
 	 * @return  The (plaintext) decrypted string
 	 */
 	String decrypt(String s);
-	
 }
