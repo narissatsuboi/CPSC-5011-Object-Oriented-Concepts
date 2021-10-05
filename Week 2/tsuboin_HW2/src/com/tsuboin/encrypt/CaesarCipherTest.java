@@ -4,7 +4,7 @@
  * This is free and unencumbered software released into the public domain.
  */
 
-package com.tsuboin;
+package com.tsuboin.encrypt;
 import static org.junit.Assert.*;  // for assert statements
 import org.junit.Test; // for junit4
 
@@ -45,5 +45,5 @@ public class CaesarCipherTest {
 
 
 	private String my_pw = "password";
-	private String my_pw_encrypt = " "
+	private String my_pw_encrypt = " ";
 }

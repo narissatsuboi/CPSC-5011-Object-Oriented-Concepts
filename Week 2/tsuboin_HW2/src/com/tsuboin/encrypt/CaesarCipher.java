@@ -4,7 +4,7 @@
  * This is free and unencumbered software released into the public domain.
  */
 
-package com.tsuboin;
+package com.tsuboin.encrypt;
 import java.util.Random;
 
 /**
