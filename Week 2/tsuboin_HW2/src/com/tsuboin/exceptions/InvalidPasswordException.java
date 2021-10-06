@@ -11,12 +11,10 @@ package com.tsuboin.exceptions;/*
  * @author Narissa Tsuboi
  * @version 1.0
  */
-public class InvalidPasswordException extends Exception
-{
-	public InvalidPasswordException()
-	{
+public class InvalidPasswordException extends Exception {
+	public InvalidPasswordException() {
 		super("Error: The password is invalid; enter 6-15 lowercase " +
-			"characters and at least one letter, one number, and one " +
+			"characters and at least\none letter, one number, and one " +
 			"special character (!@#$%^&).");
 	}
 }

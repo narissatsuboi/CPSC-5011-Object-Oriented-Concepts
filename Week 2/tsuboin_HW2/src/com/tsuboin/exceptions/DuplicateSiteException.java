@@ -12,10 +12,8 @@ package com.tsuboin.exceptions;
  * @author Narissa Tsuboi
  * @version 1.0
  */
-public class DuplicateSiteException extends Exception
-{
-	public DuplicateSiteException()
-	{
+public class DuplicateSiteException extends Exception {
+	public DuplicateSiteException() {
 		super("Error: The site name already exists for this user.");
 	}
 }

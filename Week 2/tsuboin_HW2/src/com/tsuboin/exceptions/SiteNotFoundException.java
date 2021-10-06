@@ -11,10 +11,8 @@ package com.tsuboin.exceptions;/*
  * @author Narissa Tsuboi
  * @version 1.0
  */
-public class SiteNotFoundException extends Exception
-{
-	public SiteNotFoundException()
-	{
+public class SiteNotFoundException extends Exception {
+	public SiteNotFoundException() {
 		super("Error: Site name does not exist for this user.");
 	}
 }

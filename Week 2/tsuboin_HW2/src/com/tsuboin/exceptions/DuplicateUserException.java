@@ -12,10 +12,8 @@ package com.tsuboin.exceptions;
  * @author Narissa Tsuboi
  * @version 1.0
  */
-public class DuplicateUserException extends Exception
-{
-	public DuplicateUserException()
-	{
+public class DuplicateUserException extends Exception {
+	public DuplicateUserException() {
 		super("Error: The username already exists.");
 	}
 }

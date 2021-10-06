@@ -5,6 +5,7 @@
  */
 
 package com.tsuboin.encrypt;
+
 import java.util.Random;
 
 /**
@@ -71,30 +72,35 @@ public class CaesarCipher implements Encryptor {
 	 * 'False', decrypts string by shifting string the same 'shift'
 	 * in the opposite direction.
 	 *
-	 * @param s Encrypted or decrypted string
+	 * @param s       Encrypted or decrypted string
 	 * @param encrypt True for encrypt, False for decrypt
 	 * @return Modified string
 	 * @throws IllegalArgumentException
 	 */
-	private String encryptDecrypt(String s, boolean encrypt) throws IllegalArgumentException {
+	private String encryptDecrypt(String s, boolean encrypt)
+		throws IllegalArgumentException {
 		StringBuilder sb = new StringBuilder();
 		for (char c : s.toCharArray()) {
 			int indx = c, cpos;
-			if (!isPositionInRange(indx))
-				throw new IllegalArgumentException("String to be encrypted has unrecognized character " + c);
+			if (!isPositionInRange(indx)) {
+				throw new IllegalArgumentException("String to be encrypted has " +
+					"unrecognized character " + c);
+			}
 
 			if (encrypt) {
 				cpos = indx + shift;
-				if (cpos > OFFSET_MAX)
+				if (cpos > OFFSET_MAX) {
 					cpos = OFFSET_MIN + (cpos - OFFSET_MAX);
+				}
 			} else {
 				cpos = indx - shift;
-				if (cpos < OFFSET_MIN)
-					cpos = OFFSET_MAX - (OFFSET_MIN - cpos);	
+				if (cpos < OFFSET_MIN) {
+					cpos = OFFSET_MAX - (OFFSET_MIN - cpos);
+				}
 			}
-			sb.append((char)cpos);
+			sb.append((char) cpos);
 		}
-		return sb.toString();		
+		return sb.toString();
 	}
 
 	/**
@@ -109,6 +115,6 @@ public class CaesarCipher implements Encryptor {
 	}
 
 	private int shift; // num indexes to pull swapped char from
-    private static final int OFFSET_MIN = 32; // ASCII start
-    private static final int OFFSET_MAX = 126;// ASCII end
+	private static final int OFFSET_MIN = 32; // ASCII start
+	private static final int OFFSET_MAX = 126;// ASCII end
 }

@@ -11,10 +11,8 @@ package com.tsuboin.exceptions;/*
  * @author Narissa Tsuboi
  * @version 1.0
  */
-public class UserNotFoundException extends Exception
-{
-	public UserNotFoundException()
-	{
+public class UserNotFoundException extends Exception {
+	public UserNotFoundException() {
 		super("Error: Username does not exist.");
 	}
 }

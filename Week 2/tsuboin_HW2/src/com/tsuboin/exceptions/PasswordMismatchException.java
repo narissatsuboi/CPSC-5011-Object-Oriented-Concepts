@@ -11,10 +11,8 @@ package com.tsuboin.exceptions;/*
  * @author Narissa Tsuboi
  * @version 1.0
  */
-public class PasswordMismatchException extends Exception
-{
-	public PasswordMismatchException()
-	{
+public class PasswordMismatchException extends Exception {
+	public PasswordMismatchException() {
 		super("Error: Attempted to login with incorrect credentials.");
 	}
 }

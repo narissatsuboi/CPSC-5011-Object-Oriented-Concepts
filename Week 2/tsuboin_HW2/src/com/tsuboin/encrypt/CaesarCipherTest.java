@@ -5,8 +5,10 @@
  */
 
 package com.tsuboin.encrypt;
-import static org.junit.Assert.*;  // for assert statements
-import org.junit.Test; // for junit4
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * This Junit4 testing program tests the methods in CaesarCipher class

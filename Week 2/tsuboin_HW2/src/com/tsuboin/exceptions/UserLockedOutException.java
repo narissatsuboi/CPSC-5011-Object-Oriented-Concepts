@@ -12,10 +12,8 @@ package com.tsuboin.exceptions;
  * @author Narissa Tsuboi
  * @version 1.0
  */
-public class UserLockedOutException extends Exception
-{
-	public UserLockedOutException()
-	{
+public class UserLockedOutException extends Exception {
+	public UserLockedOutException() {
 		super("Error: Attempted to login with incorrect credentials 3 times, " +
 			"user is locked out of the system.");
 	}

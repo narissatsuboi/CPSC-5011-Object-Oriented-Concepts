@@ -11,10 +11,8 @@ package com.tsuboin.exceptions;/*
  * @author Narissa Tsuboi
  * @version 1.0
  */
-public class InvalidSiteException extends Exception
-{
-	public InvalidSiteException()
-	{
+public class InvalidSiteException extends Exception {
+	public InvalidSiteException() {
 		super("Error: The site name is invalid; enter 6-12 lower-case letters" +
 			".");
 	}
