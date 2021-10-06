@@ -5,8 +5,7 @@
  */
 
 package com.tsuboin.vault;
-
-
+import com.tsuboin.exceptions.*; // For custom exception classes
 /*
   In addition the class that implements the Vault interface must include 
   two constructors:
@@ -38,9 +37,9 @@ public interface Vault {
 	 * @throws DuplicateUserException   The username is already in the vault 
 	 */
 	void addNewUser(String username, String password) 
-			throws 	com.tsuboin.exceptions.InvalidUsernameException,
-					com.tsuboin.exceptions.InvalidPasswordException,
-					com.tsuboin.exceptions.DuplicateUserException;
+			throws 	InvalidUsernameException,
+					InvalidPasswordException,
+					DuplicateUserException;
 	
 	/**
 	 * Adds a new site to the vault for the user, generates, stores, and 
@@ -64,11 +63,11 @@ public interface Vault {
 	 * @throws InvalidSiteException      The site name supplied is invalid
 	 */
 	String addNewSite(String username, String password, String sitename)
-			throws 	com.tsuboin.exceptions.DuplicateSiteException,
-					com.tsuboin.exceptions.UserNotFoundException,
-					com.tsuboin.exceptions.UserLockedOutException,
-					com.tsuboin.exceptions.PasswordMismatchException,
-					com.tsuboin.exceptions.InvalidSiteException;
+			throws 	DuplicateSiteException,
+					UserNotFoundException,
+					UserLockedOutException,
+					PasswordMismatchException,
+					InvalidSiteException;
 	
 	/**
 	 * Generate, store, and return an updated password for a site associated 
@@ -89,10 +88,10 @@ public interface Vault {
 	 *                                   user's vault password
 	 */
 	String updateSitePassword(String username, String password, String sitename)
-			throws 	com.tsuboin.exceptions.SiteNotFoundException,
-					com.tsuboin.exceptions.UserNotFoundException,
-					com.tsuboin.exceptions.UserLockedOutException,
-					com.tsuboin.exceptions.PasswordMismatchException;
+			throws 	SiteNotFoundException,
+					UserNotFoundException,
+					UserLockedOutException,
+					PasswordMismatchException;
 	
 	/**
 	 * Retrieve the (plaintext) password for the user for the requested site. 
@@ -112,9 +111,8 @@ public interface Vault {
 	 *                                   user's vault password
 	 */
 	String retrieveSitePassword(String username, String password, String sitename)
-			throws 	com.tsuboin.exceptions.SiteNotFoundException,
-					com.tsuboin.exceptions.UserNotFoundException,
-					com.tsuboin.exceptions.UserLockedOutException,
-					com.tsuboin.exceptions.PasswordMismatchException;
-
+			throws 	SiteNotFoundException,
+					UserNotFoundException,
+					UserLockedOutException,
+					PasswordMismatchException;
 }

@@ -6,12 +6,16 @@ package com.tsuboin.exceptions;
  */
 
 /**
- * Class description
+ * DuplicateSiteExceptions are thrown when the supplied site is
+ * already stored in the vault for that user.
  *
  * @author Narissa Tsuboi
  * @version 1.0
  */
 public class DuplicateSiteException extends Exception
 {
-
+	public DuplicateSiteException()
+	{
+		super("Error: The site name already exists for this user.");
+	}
 }

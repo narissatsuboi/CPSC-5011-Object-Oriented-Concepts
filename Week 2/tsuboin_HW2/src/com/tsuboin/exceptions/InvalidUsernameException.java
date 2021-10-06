@@ -12,6 +12,10 @@ package com.tsuboin.exceptions;/*
  * @author Narissa Tsuboi
  * @version 1.0
  */
-public class InvalidUsernameException
+public class InvalidUsernameException extends Exception
 {
+	public InvalidUsernameException()
+	{
+		super("Error: The username is invalid; enter 6-12 lower-case letters.");
+	}
 }
