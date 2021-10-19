@@ -1,5 +1,11 @@
 package tsuboin_hw4.registration;
 
+/*
+ * Narissa Tsuboi
+ * CPSC 5011, Seattle University
+ * This is free and unencumbered software released into the public domain.
+ */
+
 import tsuboin_hw4.enums.Building;
 import tsuboin_hw4.enums.Quarter;
 import tsuboin_hw4.person.Faculty;
@@ -24,7 +30,7 @@ import tsuboin_hw4.person.Faculty;
  * <li><strong>location (building/room):</strong> LEML 122</li>
  * </ul>
  * 
- * @author 
+ * @author Narissa Tsuboi
  */
 public class Section {    
     

@@ -1,5 +1,11 @@
 package tsuboin_hw4.driver;
 
+/*
+ * Narissa Tsuboi
+ * CPSC 5011, Seattle University
+ * This is free and unencumbered software released into the public domain.
+ */
+
 import tsuboin_hw4.enums.Building;
 import tsuboin_hw4.enums.FacultyType;
 import tsuboin_hw4.enums.Quarter;
@@ -14,6 +20,7 @@ import tsuboin_hw4.exception.PersonNotFoundException;
 import tsuboin_hw4.system.RegistrationSystem;
 import tsuboin_hw4.exception.DuplicateSectionException;
 import tsuboin_hw4.exception.SectionNotFoundException;
+
 
 /**
  * <p>The <strong>Driver</strong> interfaces with the registration system and 
@@ -184,5 +191,8 @@ public class Driver {
     private static void printSystem(RegistrationSystem system) {
         // TODO: implement printSystem method
     }
+
+
+
 
 }

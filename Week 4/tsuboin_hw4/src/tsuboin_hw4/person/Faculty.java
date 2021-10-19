@@ -1,5 +1,15 @@
 package tsuboin_hw4.person;
 
+/*
+ * Narissa Tsuboi
+ * CPSC 5011, Seattle University
+ * This is free and unencumbered software released into the public domain.
+ */
+
+import tsuboin_hw4.enums.Building;
+import tsuboin_hw4.enums.FacultyType;
+import tsuboin_hw4.enums.PersonStatus;
+
 /**
  * <p>The <strong>Faculty</strong> class holds information about a faculty member.</p>
  * <ul>
@@ -27,23 +37,36 @@ package tsuboin_hw4.person;
 public class Faculty {
 
     /**
-     * 
+     * Overloaded constructor instantiates Faculty object with firstName and
+     * lastName.
+     *
      * @param firstName   The first name of the faculty
      * @param lastName    The last name of the faculty
      */
     public Faculty(String firstName, String lastName) {
         
         // TODO: implement Faculty constructor
+        this.firstName = firstName;
+        this.lastName = lastName;
+
+        this.SUID = SUID
     
     }
     
     
     // TODO: add Faculty fields
-    // - first name
-    // - last name
-    // - SUID
-    // - status (see PersonStatus)
-    // - faculty type (see FacultyType)
-    // - office (see Building)
-    // - email
+    /** Faculty member's first name */
+    String firstName;
+    /** Faculty member's last name */
+    String lastName;
+    /** Seattle U Identification Number */
+    int SUID;
+    /** status (see PersonStatus) */
+    PersonStatus status;
+    /** faculty type (see FacultyType) */
+    FacultyType facultyType;
+    /** Assigned office on campus (see Building) */
+    Building office;
+    /** Seattle U email*/
+    String email;
 }

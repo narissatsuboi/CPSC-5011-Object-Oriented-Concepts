@@ -1,5 +1,11 @@
 package tsuboin_hw4.system;
 
+/*
+ * Narissa Tsuboi
+ * CPSC 5011, Seattle University
+ * This is free and unencumbered software released into the public domain.
+ */
+
 import tsuboin_hw4.enums.Building;
 import tsuboin_hw4.enums.FacultyType;
 import tsuboin_hw4.enums.Quarter;
@@ -147,8 +153,9 @@ public class RegistrationSystem {
         // TODO: implement addSection method
     
     }
-    
-    
+
+
+
     // TODO: add RegistrationSystem collections
     // - student list
     // - faculty list

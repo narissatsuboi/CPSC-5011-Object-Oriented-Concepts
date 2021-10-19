@@ -1,5 +1,11 @@
 package tsuboin_hw4.person;
 
+/*
+ * Narissa Tsuboi
+ * CPSC 5011, Seattle University
+ * This is free and unencumbered software released into the public domain.
+ */
+
 /**
  * <p>The <strong>Student</strong> class holds information about a student.</p>
  * <ul>
@@ -48,7 +54,7 @@ package tsuboin_hw4.person;
  * <li><strong>email:</strong> busterbluth@seattleu.edu</li>
  * </ul>
  * 
- * @author 
+ * @author Narissa Tsuboi
  */
 public class Student {
 
