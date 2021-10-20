@@ -7,7 +7,9 @@ package tsuboin_hw4.registration;
  */
 
 import tsuboin_hw4.enums.SubjectCode;
-import java.util.TreeMap;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The Course class holds information about a course.
@@ -38,17 +40,15 @@ public class Course {
      * @param name      The course name
      * @param creditNum The number of the credits of the course
      */
-    public Course(SubjectCode code, int courseNum, String name, 
-                    int creditNum) {
+    public Course(SubjectCode code, int courseNum, String name, int creditNum) {
         this.code = code;
         this.courseNum = courseNum;
         this.courseName = name;
         this.creditNum = creditNum;
-        this.prerequisites = new TreeMap<String, String>();
+        this.prerequisites = new HashMap<>();
     }
 
     /* Getters */
-
     /**
      * Returns the course code.
      * @return code, see SubjectCode enum class.
@@ -77,38 +77,52 @@ public class Course {
      * Returns a treemap of prerequisites.
      * @return prerequisites, {SubjectCode-CourseNum: CourseName}
      */
-    public TreeMap<String, String> getPrerequisites() {
+    public Map<SubjectCode, Integer> getPrerequisites() {
         return this.prerequisites;
     }
 
     /* Setters */
-
     /**
      * Add a prerequisites course's code and name to another course's
      * prerequisite collection.
      *
      * @param code   subject code of the course (see SubjectCode enum)
      * @param courseNum  course number
-     * @param courseName course name
      */
-    public void setPrerequisite(SubjectCode code, int courseNum,
-                                String courseName) {
-        prerequisites.put(code.toString() + "-" + courseNum, courseName);
+    public void setPrerequisite(SubjectCode code, int courseNum) {
+        prerequisites.put(code, courseNum);
     }
 
+    /* Utility */
+
+    /**
+     * toString for Course objects.
+     * @param sb StringBuilder.
+     * @return string representation of Course object.
+     */
+    public String toString(StringBuilder sb) {
+        sb.append("Name=").append(this.code).append("-").append(this.courseNum);
+        sb.append(": ").append(this.courseName);
+        sb.append(", ");
+        sb.append("Credits=").append(this.creditNum);
+        sb.append(", ");
+        return sb.toString();
+    }
+
+    /* Private Fields*/
     /** subject code (see SubjectCode) */
-    SubjectCode code;
+    private SubjectCode code;
 
     /** course number */
-    int courseNum;
+    private int courseNum;
 
     /** course name */
-    String courseName;
+    private String courseName;
 
     /** credit number */
-    int creditNum;
+    private int creditNum;
 
     /** a collection of prerequisite course(s) */
-    TreeMap<String, String> prerequisites;
+    private Map<SubjectCode, Integer> prerequisites;
 }
 

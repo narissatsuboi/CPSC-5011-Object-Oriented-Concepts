@@ -8,31 +8,29 @@ package tsuboin_hw4.person;
 
 import tsuboin_hw4.enums.Building;
 import tsuboin_hw4.enums.FacultyType;
-import tsuboin_hw4.enums.PersonStatus;
+import java.lang.StringBuilder;
 
 /**
- * <p>The <strong>Faculty</strong> class holds information about a faculty member.</p>
- * <ul>
- * <li><strong>first name:</strong> first name of the faculty</li>
- * <li><strong>last name:</strong> last name of the faculty</li>
- * <li><strong>suid:</strong> SeattleU identification number</li>
- * <li><strong>status:</strong> the status of the faculty (see PersonStatus enum)</li>
- * <li><strong>faculty type:</strong> the type of faculty (see FacultyType enum)</li>
- * <li><strong>office:</strong> includes building (i.e. ENGR) and room number (i.e 504)</li>
- * <li><strong>email:</strong> the school (i.e. SU) email address</li>
- * </ul>
- * <p>For example, faculty <strong>Sheila Oh</strong></p>
- * <ul>
- * <li><strong>first name:</strong> Sheila</li>
- * <li><strong>last name:</strong> Oh</li>
- * <li><strong>suid:</strong> 100013</li>
- * <li><strong>status:</strong> ACTIVE</li>
- * <li><strong>faculty type:</strong> SEN_INSTRUCT</li>
- * <li><strong>office (building/room):</strong> ENGR 504</li>
- * <li><strong>email:</strong> ohsh@seattleu.edu</li>
- * </ul>
+ * The Faculty class holds information about a faculty member.
+ *
+ * first name:   first name of the faculty
+ * last name:    last name of the faculty
+ * suid:         SeattleU identification number
+ * status:       the status of the faculty (see PersonStatus enum)
+ * faculty type: the type of faculty (see FacultyType enum)
+ * office:       includes building (i.e. ENGR) and room number (i.e 504)
+ * email:        the school (i.e. SU) email address
+ * For example, faculty Sheila Oh
+ * first name:   Sheila
+ * last name:    Oh
+ * suid:         100013
+ * status:       ACTIVE
+ * faculty type: SEN_INSTRUCT
+ * office (building/room):E NGR 504
+ * email:        ohsh@seattleu.edu
  * 
  * @author Narissa Tsuboi
+ * @version 1.0
  */
 public class Faculty extends Person {
 
@@ -51,8 +49,7 @@ public class Faculty extends Person {
     public Faculty (String firstName, String lastName,
                    FacultyType facultyType, Building building,
                    int room, String email) {
-        // TODO: implement Faculty constructor
-        super(firstName, lastName);       // call Person constructor
+        super(firstName, lastName);
         this.facultyType = facultyType;
         this.building = building;
         this.room = room;
@@ -81,8 +78,29 @@ public class Faculty extends Person {
      */
     public int getRoom() {return room;}
 
+    /**
+     * toString for faculty object.
+     *
+     * @param sb StringBuilder object
+     * @return string
+     */
+    public String toString(StringBuilder sb) {
+        sb.append("Name=").append(this.firstName).append(" ").
+            append(this.lastName);
+        sb.append(", ");
+        sb.append("SUID=").append(this.suid);
+        sb.append(", ");
+        sb.append("Email=").append(this.email);
+        sb.append(", ");
+        sb.append("Status=").append(this.status);
+        sb.append(", ");
+        sb.append("Type=").append(this.facultyType);
+        sb.append(", ");
+        sb.append("Office=").append(this.building).append(" ").append(this.room);
+        return sb.toString();
+    }
 
-    // TODO: add Faculty fields
+    /* Private Fields */
     /** faculty type (see FacultyType) */
     FacultyType facultyType;
 

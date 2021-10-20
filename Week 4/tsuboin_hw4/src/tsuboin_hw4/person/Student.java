@@ -7,7 +7,6 @@ package tsuboin_hw4.person;
  */
 
 import tsuboin_hw4.enums.*;
-import java.time.temporal.TemporalField;
 import java.util.Calendar;
 import java.util.Date;
 import java.time.Year;
@@ -53,8 +52,6 @@ import java.time.Year;
  * @version 1.0
  */
 public class Student extends Person {
-
-
     /**
      * Overloaded Student constructor instantiates a new Student
      * object and initializes all class fields. Inherits firstName,
@@ -69,7 +66,7 @@ public class Student extends Person {
      */
     public Student(String firstName, String lastName, StudentType type,
                    StudentProgram program, Quarter startTerm, int year) {
-        super(firstName, lastName);          // Superclass Person
+        super(firstName, lastName);
         this.studentType = type;
         this.program = program;
 
@@ -83,7 +80,6 @@ public class Student extends Person {
     }
 
     /* Getters */
-
     /**
      * Returns the Student's student type.
      * @return studentType, see StudentType enum class.
@@ -108,54 +104,46 @@ public class Student extends Person {
      */
     public Quarter getStartTerm() {return this.startTerm;}
 
-    // TODO Advisor GETTER Student class
-
     /**
      * Returns the Student's email address.
      * @return email
      */
     public String getEmail() {return this.email;}
 
-    /*
-     ****************************************************************
-     * Setters
-     * Student setters are available to update Student fields after
-     * object instantiation.
-     * Example use cases:
-     *    A student has gone from undergraduate to a graduate program.
-     *    A student is now a JUNIOR instead of a SOPHOMORE.
-     */
-
+    /* Setters */
     /**
-     * Change a student's type from undergraduate to graduate or visa-
-     * versa if they move onto another program.
-     *
-     * @param type See StudentType enum class.
+     * Sets or changes a student's advisor.
+     * @param fac Faculty member already in the Registration System.
      */
-     public void setStudentType(StudentType type) {this.studentType = type;}
+    public void setStudentAdvisor(Faculty fac) {this.facultyAdvisor = fac;}
 
+    /* Utility */
     /**
-     * Change a student's academic program to a different program
-     * from the StudentProgram enum class. IE, a student graduates
-     * from the certificate program to the MSCS.
-     *
-     * @param program A program from the StudentProgram class.
+     * toString for Student object.
+     * @param sb StringBuilder.
+     * @return string representation of student object.
      */
-    public void setStudentProgram(StudentProgram program) {this.program =
-        program;}
-
-    /**
-     * Change an undergraduate student's academic year manually as they
-     * advance.
-     *
-     * @param year StudentYear FRESHMAN, SOPHMORE, etc.
-     */
-    public void setStudentYear(StudentYear year) {this.studentYear = year;}
-
-
-    /*
-     * Private Methods and Fields
-     */
+    public String toString(StringBuilder sb) {
+        sb.append("Name=").append(this.firstName).append(" ").
+            append(this.lastName);
+        sb.append(", ");
+        sb.append("SUID=").append(this.suid);
+        sb.append(", ");
+        sb.append("Email=").append(this.email);
+        sb.append(", ");
+        sb.append("Status=").append(this.status);
+        sb.append(", ");
+        sb.append("Type=").append(this.studentType);
+        sb.append(", ");
+        sb.append("Program=").append(this.program);
+        sb.append(", ");
+        sb.append("Term=").append(this.startTerm);
+        sb.append(", ");
+        sb.append("Advisor=").append(this.facultyAdvisor.firstName + " ").append(this.facultyAdvisor.lastName);
+        sb.append(", ");
+        sb.append("Year=").append(this.studentYear);
+        return sb.toString();
+    }
 
     /**
      * Generates Student Seattle U email.
@@ -198,10 +186,12 @@ public class Student extends Person {
             nowQuarter = Quarter.RQ;
         else if (month >= 10)
             nowQuarter = Quarter.FQ;
+        else
+            nowQuarter = Quarter.FQ;
 
         // Determine years since start
         int now = Year.now().getValue();
-        int yearsSoFar = year - now;
+        int yearsSoFar = now - year;
 
         // Determine StudentYear
         if ((yearsSoFar == SENIOR)
@@ -213,28 +203,28 @@ public class Student extends Person {
         else if ((yearsSoFar == SOPH)
             || (this.startTerm == Quarter.FQ) && yearsSoFar == FRESH)
             studentYear = StudentYear.SOPHOMORE;
-
         return studentYear;
     }
 
+    /* Private Fields */
     /** student type (see StudentType)*/
-    StudentType studentType;
+    private StudentType studentType;
 
     /** student program (see StudentProgram)*/
-    StudentProgram program;
+    private StudentProgram program;
 
     /** student year (see StudentYear; only if undergrad––default to
      * freshman) */
-    StudentYear studentYear;
+    private StudentYear studentYear;
 
     /** startTerm (see Quarter)*/
-    Quarter startTerm;
+    private Quarter startTerm;
 
     /** Faculty advisor, randomly assigned*/
     // TODO: Faculty advisor in student class
-    Faculty facultyAdvisor;
+    private Faculty facultyAdvisor;
 
     /** Seattle U email*/
-    String email;
+    private String email;
 
 }

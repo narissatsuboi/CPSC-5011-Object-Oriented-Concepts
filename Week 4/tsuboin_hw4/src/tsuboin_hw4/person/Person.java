@@ -24,23 +24,36 @@ public class Person {
 	public Person(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.suid = idNumber.get_new_SUID();
+		this.suid = IdentificationNumber.get_new_SUID();
 		this.status = PersonStatus.ACTIVE;
 	}
 
 	/* Getters */
+	/**
+	 * Returns first name of Person.
+	 * @return firstName
+	 */
 	public String getFirstName() {return this.firstName;}
 
+	/**
+	 * Returns last name of Person.
+	 * @return lastName.
+	 */
 	public String getLastName()  {return this.lastName;}
 
+	/**
+	 * Returns identification number of Person.
+	 * @return suid
+	 */
 	public int getSuid() {return this.suid;}
 
+	/**
+	 * Return activity status of person.
+	 * @return status.
+	 */
 	public PersonStatus getStatus() {return this.status;}
 
-	public String getPersonKey() {
-		return this.firstName + this.lastName + this.suid;
-	}
-
+	/* Private Fields */
 	/** Community member's first name */
 	String firstName;
 

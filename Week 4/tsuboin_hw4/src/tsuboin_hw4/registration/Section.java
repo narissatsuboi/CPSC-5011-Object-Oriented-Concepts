@@ -10,6 +10,7 @@ import tsuboin_hw4.enums.Building;
 import tsuboin_hw4.enums.Quarter;
 import tsuboin_hw4.person.Faculty;
 
+
 /**
  * The Section class holds information about a course section.
  *
@@ -47,7 +48,8 @@ public class Section {
      */
     public Section(Course course, int section, Faculty instructor, Quarter quarter, 
                     int year, int cap, Building bldg, int room) {
-        this.course = course.getCourseCode() + "-" + course.getCourseNum();
+        this.course =
+            course.getCourseCode().toString() + "-" + course.getCourseNum();
         this.section = "0" + Integer.toString(section);
         this.instructor =
             instructor.getFirstName() + " " + instructor.getLastName();
@@ -57,7 +59,6 @@ public class Section {
     }
 
     /* Getters */
-
     /**
      * Returns the course (SubjectCode + course number).
      * @return course, ie CPSC-2630.
@@ -94,21 +95,22 @@ public class Section {
      */
     public String getSectionLocation() {return this.location;}
 
+    /* Private Fields */
     /** course */
-    String course;
+    private String course;
 
     /** section */
-    String section;
+    private String section;
 
     /** instructor*/
-    String instructor;
+    private String instructor;
 
     /** term (see Quarter)*/
-    String term;
+    private String term;
 
     /** capacity */
-    int capacity;
+    private int capacity;
 
     /** location (see Building)*/
-    String location;
+    private String location;
 }

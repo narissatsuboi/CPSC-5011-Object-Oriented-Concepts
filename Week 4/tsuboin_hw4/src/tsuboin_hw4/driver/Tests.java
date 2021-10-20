@@ -1,6 +1,8 @@
 package tsuboin_hw4.driver;
 import org.junit.Test;
 import tsuboin_hw4.enums.*;
+import tsuboin_hw4.exception.DuplicateCourseException;
+import tsuboin_hw4.exception.DuplicatePersonException;
 import tsuboin_hw4.person.Faculty;
 import tsuboin_hw4.person.Person;
 import tsuboin_hw4.person.Student;
@@ -11,6 +13,8 @@ import java.time.temporal.TemporalField;
 
 import java.sql.SQLOutput;
 import java.time.Year;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 /*
@@ -27,6 +31,9 @@ import java.util.TreeMap;
  */
 
 public class Tests {
+	// Arrange
+
+
 	@Test
 	public void testPerson() {
 		System.out.println("**** TEST PERSON CLASS ****");
@@ -77,13 +84,15 @@ public class Tests {
 		System.out.println("First name... " + Momo.getFirstName());
 		System.out.println("Get last name... " + Momo.getLastName());
 		System.out.println("Get suid... " + Momo.getSuid());
-		System.out.println("Get Person key..." + Momo.getPersonKey());
 
 		System.out.println("*** Test class methods ***");
 		System.out.println("Get FacultyType... " + Momo.getFacultyType());
 		System.out.println("Get Building..." + Momo.getBuilding());
 		System.out.println("Get room... " + Momo.getRoom());
 		System.out.println("Get status... " + Momo.getStatus());
+		System.out.println("Test toString()...");
+		StringBuilder sb = new StringBuilder();
+		System.out.println(Momo.toString(sb));
 	}
 
 	@Test
@@ -95,21 +104,15 @@ public class Tests {
 		System.out.println("**** TEST COURSE CLASS ****");
 		System.out.println("Created CPSC-2600 Foundations of Computer Science");
 		System.out.println("Added prerequisite CPSC-1000 Computer Basics");
-		Course Foundations = new Course(SubjectCode.CPSC, 2600, "Foundations " +
-			"of Computer Science", 5);
-		Foundations.setPrerequisite(SubjectCode.CPSC, 1000,
-			"Computer Basics");
+		Course Foundations = new Course(SubjectCode.CPSC, 102, "Object " +
+			"Oriented for Dummies",	5);
 		System.out.println("Get course code... " + Foundations.getCourseCode());
 		System.out.println("Get course number... " + Foundations.getCourseNum());
 		System.out.println("Get course name... " + Foundations.getCourseName());
 		System.out.println("Get credits... " + Foundations.getCreditNum());
 		System.out.println("Get prereqs and display... ");
-		Map<String, String> prs = Foundations.getPrerequisites();
-		for (Map.Entry<String, String> entry : prs.entrySet()) {
-			String key = entry.getKey();
-			String value = entry.getValue();
-			System.out.printf("%s : %s\n", key, value);
-		}
+		Map<SubjectCode, Integer> prs = Foundations.getPrerequisites();
+
 	}
 
 	@Test
@@ -132,15 +135,13 @@ public class Tests {
 		System.out.println("Get location... " + s.getSectionLocation());
 	}
 
-
 	@Test
-	public void testRegistrationSystem() {
-		// Arrange
-		RegistrationSystem rs = new RegistrationSystem();
-
-		Faculty Momo = new Faculty("Momo", "Haney", FacultyType.PROF,
-			Building.ENGR, 511, "haneym@seattleu.edu");
+	public void testSomething() {
+		int year = 2018;
+		int now = Year.now().getValue();
+		int yearsSoFar = year - now;
+		System.out.println("year: " + year);
+		System.out.println("now: " + now);
+		System.out.println("yearSoFar: " + yearsSoFar);
 	}
-	// Test Faculty was added to facultyList
-
 }

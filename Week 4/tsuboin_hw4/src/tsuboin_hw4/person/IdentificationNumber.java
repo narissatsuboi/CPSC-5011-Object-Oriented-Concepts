@@ -9,10 +9,11 @@ package tsuboin_hw4.person;
 /**
  * SUID class increments and issues Seattle University ID numbers from 100000+.
  * For use by Faculty and Student constructors.
+ *
  * @author Narissa Tsuboi
  * @version 1.0
  */
-public class idNumber {
+public class IdentificationNumber {
 
 	/**
 	 * Generates the next SUID (1 value greater than the last).
