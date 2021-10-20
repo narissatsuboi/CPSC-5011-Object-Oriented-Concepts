@@ -5,6 +5,7 @@ import tsuboin_hw4.person.Faculty;
 import tsuboin_hw4.person.Person;
 import tsuboin_hw4.person.Student;
 import tsuboin_hw4.registration.Course;
+import tsuboin_hw4.registration.Section;
 import tsuboin_hw4.system.RegistrationSystem;
 import java.time.temporal.TemporalField;
 
@@ -87,7 +88,7 @@ public class Tests {
 
 	@Test
 	public void testCourse() {
-		/**
+		/*
 		 * Course: Name=CPSC-2600: Foundations of Computer Science,
 		 * Credits=5, Prerequisites=[Name=CPSC-1430: Programming and Problem Solving II]
 		 */
@@ -110,6 +111,27 @@ public class Tests {
 			System.out.printf("%s : %s\n", key, value);
 		}
 	}
+
+	@Test
+	public void testSection() {
+		Course Foundations = new Course(SubjectCode.CPSC, 2600,
+			"Foundations of Computer Science", 5);
+		Faculty Momo = new Faculty("Momo", "Haney",
+			FacultyType.PROF, Building.ENGR, 511,
+			"haneym@seattleu.edu");
+
+		System.out.println("**** TEST SECTION CLASS ****");
+		System.out.println("Created Section 1 of CPSC-2600");
+		Section s = new Section(Foundations, 1, Momo, Quarter.RQ, 2019,10,
+			Building.ENGR, 101);
+		System.out.println("Get section course tag... " + s.getSectionCourse());
+		System.out.println("Get section number... " + s.getSection());
+		System.out.println("Get instructor... " + s.getSectionInstructor());
+		System.out.println("Get term... " + s.getSectionTerm());
+		System.out.println("Get capacity... " + s.getSectionCapacity());
+		System.out.println("Get location... " + s.getSectionLocation());
+	}
+
 
 	@Test
 	public void testRegistrationSystem() {

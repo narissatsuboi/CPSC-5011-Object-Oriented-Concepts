@@ -11,31 +11,31 @@ import tsuboin_hw4.enums.Quarter;
 import tsuboin_hw4.person.Faculty;
 
 /**
- * <p>The <strong>Section</strong> class holds information about a course section.</p>
- * <ul>
- * <li><strong>course:</strong> course associated with the section</li>
- * <li><strong>section:</strong> section number for the course</li>
- * <li><strong>instructor:</strong> instructor for the section (assume single instructor)</li>
- * <li><strong>term:</strong> quarter and year when the section is offered (see Quarter enum)</li>
- * <li><strong>capacity:</strong> capacity for the section</li>
- * <li><strong>location:</strong> building and room where the section is held (see Building enum)</li>
- * </ul>
- * <p>For example, <strong>CPSC 5011-02: Object-Oriented Concepts</strong>
- * <ul>
- * <li><strong>course:</strong> CPSC 5011</li>
- * <li><strong>section:</strong> 02</li>
- * <li><strong>instructor:</strong> Sheila Oh</li>
- * <li><strong>term (quarter/year):</strong> FQ18</li>
- * <li><strong>capacity:</strong> 30</li>
- * <li><strong>location (building/room):</strong> LEML 122</li>
- * </ul>
- * 
+ * The Section class holds information about a course section.
+ *
+ * course:          course associated with the section
+ * section:         section number for the course
+ * instructor:      instructor for the section (assume single instructor)
+ * term:            quarter and year when the section is offered
+ * capacity:        capacity for the section
+ * location:        building and room where the section is held (see
+ *                  Building enum)
+ * For example, CPSC-5011-02: Object-Oriented Concepts
+ * course:          CPSC-5011
+ * section:         02
+ * instructor:      Sheila Oh
+ * term (quarter/year):FQ18
+ * capacity:        30
+ * location (building/room): LEML 122
+ *
  * @author Narissa Tsuboi
  */
 public class Section {    
     
     /**
-     * 
+     * Overloaded Section constructor instantiates all section fields
+     * for a given course.
+     *
      * @param course     The course associated with the section
      * @param section    The section number for the course
      * @param instructor The faculty instructor teaching the course
@@ -47,18 +47,68 @@ public class Section {
      */
     public Section(Course course, int section, Faculty instructor, Quarter quarter, 
                     int year, int cap, Building bldg, int room) {
-        
-        // TODO: implement Section constructor
-        
+        this.course = course.getCourseCode() + "-" + course.getCourseNum();
+        this.section = "0" + Integer.toString(section);
+        this.instructor =
+            instructor.getFirstName() + " " + instructor.getLastName();
+        this.term = quarter.name() + " " + year;
+        this.capacity = cap;
+        this.location = bldg.name() + " " + room;
     }
 
-    
-    // TODO: add Section fields including:
-    // - course
-    // - section
-    // - instructor
-    // - term (see Quarter)
-    // - capacity
-    // - location (see Building)
+    /* Getters */
 
+    /**
+     * Returns the course (SubjectCode + course number).
+     * @return course, ie CPSC-2630.
+     */
+    public String getSectionCourse() {return this.course;}
+
+    /**
+     * Returns the section number.
+     * @return section.
+     */
+    public String getSection() {return this.section;}
+
+    /**
+     * Returns the instructor assigned to teach this section.
+     * @return instructor first and last name.
+     */
+    public String getSectionInstructor() {return this.instructor;}
+
+    /**
+     * Returns the section term.
+     * @return term.
+     */
+    public String getSectionTerm() {return this.term;}
+
+    /**
+     * Returns the section capacity, no maximum set by default.
+     * @return capacity.
+     */
+    public int getSectionCapacity() {return this.capacity;}
+
+    /**
+     * Returns the section's location for class meetings.
+     * @return location, ie ENGR 101.
+     */
+    public String getSectionLocation() {return this.location;}
+
+    /** course */
+    String course;
+
+    /** section */
+    String section;
+
+    /** instructor*/
+    String instructor;
+
+    /** term (see Quarter)*/
+    String term;
+
+    /** capacity */
+    int capacity;
+
+    /** location (see Building)*/
+    String location;
 }

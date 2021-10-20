@@ -7,9 +7,6 @@ package tsuboin_hw4.registration;
  */
 
 import tsuboin_hw4.enums.SubjectCode;
-
-import javax.security.auth.Subject;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
 /**
