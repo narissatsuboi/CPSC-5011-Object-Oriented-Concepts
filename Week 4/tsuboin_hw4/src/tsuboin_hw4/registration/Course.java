@@ -8,31 +8,34 @@ package tsuboin_hw4.registration;
 
 import tsuboin_hw4.enums.SubjectCode;
 
+import javax.security.auth.Subject;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
 /**
- * <p>The <strong>Course</strong> class holds information about a course.</p>
- * <ul>
- * <li><strong>subject code:</strong> subject code of the course (see SubjectCode enum)</li>
- * <li><strong>course number:</strong> course number</li>
- * <li><strong>course name:</strong> course name</li>
- * <li><strong>credit number:</strong> number of credits associated with the course</li>
- * <li><strong>prerequisites:</strong> courses that are prerequisites of this course; may
- *   have multiple or none</li>
- * </ul>
- * <p>For example, <strong>CPSC 5011: Object-Oriented Concepts</strong></p>
- * <ul>
- * <li><strong>subject code:</strong> CPSC</li>
- * <li><strong>course number:</strong> 5011</li>
- * <li><strong>course name:</strong> Object-Oriented Concepts</li>
- * <li><strong>credit number:</strong> 3</li>
- * <li><strong>prerequisite(s):</strong> CPSC 5003</li>
- * </ul>
- * 
+ * The Course class holds information about a course.
+ * subject code:     subject code of the course (see SubjectCode enum)
+ * course number:    course number
+ * course name:      course name
+ * credit number:    number of credits associated with the course
+ * prerequisites:    courses that are prerequisites of this course;
+ *                   may have multiple or none
+ * For example, CPSC 5011: Object-Oriented Concepts
+ * subject code:     CPSC
+ * course number:    5011
+ * course name:      Object-Oriented Concepts
+ * credit number:    3
+ * prerequisite(s):  CPSC 5003
+ *
  * @author Narissa Tsuboi
+ * @version 1.0
  */
 public class Course {
-    
     /**
-     * 
+     * The Course overloaded constructor instantiates a new course
+     * with code, course number, name, and the number of credits the
+     * course is worth.
+     *
      * @param code      The subject code of the course
      * @param courseNum The course number of the course
      * @param name      The course name
@@ -40,18 +43,75 @@ public class Course {
      */
     public Course(SubjectCode code, int courseNum, String name, 
                     int creditNum) {
-        
-        // TODO: implement Course constructor
-    
+        this.code = code;
+        this.courseNum = courseNum;
+        this.courseName = name;
+        this.creditNum = creditNum;
+        this.prerequisites = new TreeMap<String, String>();
     }
 
-    
-    // TODO: add Course fields 
-    // - subject code (see SubjectCode)
-    // - course number
-    // - course name
-    // - credit number
-    // - a collection of prerequisite course(s)
-    
+    /* Getters */
+
+    /**
+     * Returns the course code.
+     * @return code, see SubjectCode enum class.
+     */
+    public SubjectCode getCourseCode() {return this.code;}
+
+    /**
+     * Returns the course number.
+     * @return courseNum.
+     */
+    public int getCourseNum() {return this.courseNum;}
+
+    /**
+     * Returns the course name.
+     * @return courseName
+     */
+    public String getCourseName() {return this.courseName;}
+
+    /**
+     * Returns the credits the course is worth.
+     * @return creditNum
+     */
+    public int getCreditNum() {return this.creditNum;}
+
+    /**
+     * Returns a treemap of prerequisites.
+     * @return prerequisites, {SubjectCode-CourseNum: CourseName}
+     */
+    public TreeMap<String, String> getPrerequisites() {
+        return this.prerequisites;
+    }
+
+    /* Setters */
+
+    /**
+     * Add a prerequisites course's code and name to another course's
+     * prerequisite collection.
+     *
+     * @param code   subject code of the course (see SubjectCode enum)
+     * @param courseNum  course number
+     * @param courseName course name
+     */
+    public void setPrerequisite(SubjectCode code, int courseNum,
+                                String courseName) {
+        prerequisites.put(code.toString() + "-" + courseNum, courseName);
+    }
+
+    /** subject code (see SubjectCode) */
+    SubjectCode code;
+
+    /** course number */
+    int courseNum;
+
+    /** course name */
+    String courseName;
+
+    /** credit number */
+    int creditNum;
+
+    /** a collection of prerequisite course(s) */
+    TreeMap<String, String> prerequisites;
 }
 

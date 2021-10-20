@@ -18,6 +18,11 @@ import tsuboin_hw4.exception.DuplicatePersonException;
 import tsuboin_hw4.exception.DuplicateSubjectException;
 import tsuboin_hw4.exception.PersonNotFoundException;
 import tsuboin_hw4.exception.DuplicateSectionException;
+import tsuboin_hw4.person.Faculty;
+import tsuboin_hw4.person.Student;
+
+import java.util.HashMap;
+import java.util.Random;
 
 /**
  * <p>The <strong>RegistrationSystem</strong> class stores information about the school, 
@@ -33,9 +38,12 @@ public class RegistrationSystem {
     public RegistrationSystem() { 
         
         // TODO: implement RegistrationSystem constructor
+        facultyMap = new HashMap<>();
     
     }
-    
+    // TODO Faculty random assign STUDENT CLASS
+
+
     /**
      * Add a student to the student list collection.
      * 
@@ -71,8 +79,13 @@ public class RegistrationSystem {
                             FacultyType type, Building bldg, int room, String email) 
                             throws DuplicatePersonException {    
         
-        // TODO: implement addFaculty method
-    
+        // Maintain precondition, check if fac already in facultyList
+        if (facultyMap.containsKey(firstName+lastName))
+            throw new DuplicatePersonException();
+
+        // Instantiate new Faculty and add to Faculty List
+        facultyMap.put(firstName+lastName, new Faculty(firstName, lastName,
+            type, bldg, room, email));
     }
     
     /**
@@ -148,17 +161,28 @@ public class RegistrationSystem {
                             String firstName, String lastName, Quarter quarter, int year, 
                             int cap, Building bldg, int room) 
                             throws CourseNotFoundException, PersonNotFoundException, DuplicateSectionException {
-
-
         // TODO: implement addSection method
     
     }
 
 
+    /**
+     * Returns a random faculty member from the facultyMap.
+     *
+     * @return
+     */
+    private Faculty getRandomFacultyAdvisor() {
+        Random generator = new Random();
+        Faculty[] values = (Faculty[]) facultyMap.values().toArray();
+        Faculty randomFaculty = values[generator.nextInt(values.length)];
+        return randomFaculty;
+    }
 
     // TODO: add RegistrationSystem collections
     // - student list
+    HashMap<String, Student> studentList;
     // - faculty list
+    HashMap<String, Faculty> facultyMap;
     // - subject list
     // = course list
     // - section list

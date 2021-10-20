@@ -34,39 +34,64 @@ import tsuboin_hw4.enums.PersonStatus;
  * 
  * @author Narissa Tsuboi
  */
-public class Faculty {
+public class Faculty extends Person {
 
     /**
-     * Overloaded constructor instantiates Faculty object with firstName and
-     * lastName.
+     * Overloaded constructor instantiates Faculty object with first, last,
+     * faculty type, building, room (office number) and email. Inherits
+     * firstName, lastName, suid, and status getters from Person class.
      *
      * @param firstName   The first name of the faculty
      * @param lastName    The last name of the faculty
+     * @param facultyType See FacultyType class
+     * @param building    See Building class
+     * @param room        Faculty's permanent office
+     * @param email       Faculty's email
      */
-    public Faculty(String firstName, String lastName) {
-        
+    public Faculty (String firstName, String lastName,
+                   FacultyType facultyType, Building building,
+                   int room, String email) {
         // TODO: implement Faculty constructor
-        this.firstName = firstName;
-        this.lastName = lastName;
-
-        this.SUID = SUID
-    
+        super(firstName, lastName);       // call Person constructor
+        this.facultyType = facultyType;
+        this.building = building;
+        this.room = room;
+        this.email = email;
     }
-    
-    
+
+    /* Getters */
+    /**
+     * Returns the Faculty's type, see FacultyType class.
+     *
+     * @return FacultyType, see class.
+     */
+    public FacultyType getFacultyType() {return facultyType;}
+
+    /**
+     * Returns the Faculty's assigned building, see Building class.
+     *
+     * @return BuildingType, see class.
+     */
+    public Building getBuilding() {return building;}
+
+    /**
+     * Returns the Faculty's assigned room (office).
+     *
+     * @return room, int
+     */
+    public int getRoom() {return room;}
+
+
     // TODO: add Faculty fields
-    /** Faculty member's first name */
-    String firstName;
-    /** Faculty member's last name */
-    String lastName;
-    /** Seattle U Identification Number */
-    int SUID;
-    /** status (see PersonStatus) */
-    PersonStatus status;
     /** faculty type (see FacultyType) */
     FacultyType facultyType;
-    /** Assigned office on campus (see Building) */
-    Building office;
+
+    /** Assigned building on campus (see Building) */
+    Building building;
+
+    /** Assigned room on campus */
+    int room;
+
     /** Seattle U email*/
     String email;
 }

@@ -12,9 +12,7 @@ package tsuboin_hw4.person;
  * @author Narissa Tsuboi
  * @version 1.0
  */
-public final class SUID {
-
-	private SUID() { }
+public class idNumber {
 
 	/**
 	 * Generates the next SUID (1 value greater than the last).
@@ -26,5 +24,5 @@ public final class SUID {
 	}
 
 	/**  Stores latest SUID number */
-	private static int current_ID = 999999;
+	static int current_ID = 999999;
 }

@@ -17,6 +17,7 @@ import tsuboin_hw4.exception.DuplicateCourseException;
 import tsuboin_hw4.exception.DuplicatePersonException;
 import tsuboin_hw4.exception.DuplicateSubjectException;
 import tsuboin_hw4.exception.PersonNotFoundException;
+import tsuboin_hw4.person.Faculty;
 import tsuboin_hw4.system.RegistrationSystem;
 import tsuboin_hw4.exception.DuplicateSectionException;
 import tsuboin_hw4.exception.SectionNotFoundException;
@@ -39,7 +40,9 @@ public class Driver {
         // this includes all the contents of: faculty, students, subjects, 
         // courses (and their prerequisites), and course section; additional
         // functions may be added to the System to complete this task        
-        printSystem(system);    
+        printSystem(system);
+
+
     }
     
     private static void populateSystem(RegistrationSystem system) {
