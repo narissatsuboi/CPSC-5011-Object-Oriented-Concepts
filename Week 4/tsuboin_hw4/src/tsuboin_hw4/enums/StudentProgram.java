@@ -15,7 +15,7 @@ package tsuboin_hw4.enums;
  * <li>{@link #CERT}: Certificate of Computer Science Fundamentals (grad)</li>
  * <li>{@link #MSCS}: Master of Science in Computer Science (grad)</li>
  * </ul>
- * 
+ *
  * @author Narissa Tsuboi
  */
-public enum StudentProgram { UNDECIDED, BSCS, BACS, CERT, MSCS }
+public enum StudentProgram {UNDECIDED, BSCS, BACS, CERT, MSCS}

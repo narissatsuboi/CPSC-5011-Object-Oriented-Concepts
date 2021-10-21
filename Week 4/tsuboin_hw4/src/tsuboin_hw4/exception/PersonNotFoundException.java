@@ -11,26 +11,26 @@ package tsuboin_hw4.exception;
  * a form of Throwable that indicates conditions that a reasonable
  * application might want to catch. This exception is thrown when attempting
  * to find a person that does not exist.</p>
- * 
+ *
  * @author Narissa Tsuboi
  */
 @SuppressWarnings("serial")
 public class PersonNotFoundException extends Exception {
 
-    /**
-     * Overloaded constructor for PersonNotFoundException.
-     *
-     * @param msg string
-     */
-    public PersonNotFoundException(String msg) {
-        super(msg);
-    }
+	/**
+	 * Overloaded constructor for PersonNotFoundException.
+	 *
+	 * @param msg string
+	 */
+	public PersonNotFoundException(String msg) {
+		super(msg);
+	}
 
-    /**
-     * Default constructor for PersonNotFoundException.
-     */
-    public PersonNotFoundException() {
-        this("Person was not found.");
-    }
-    
+	/**
+	 * Default constructor for PersonNotFoundException.
+	 */
+	public PersonNotFoundException() {
+		this("Person was not found.");
+	}
+
 }

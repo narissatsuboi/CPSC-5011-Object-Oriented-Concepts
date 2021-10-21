@@ -1,22 +1,15 @@
 package tsuboin_hw4.driver;
+
 import org.junit.Test;
 import tsuboin_hw4.enums.*;
-import tsuboin_hw4.exception.DuplicateCourseException;
-import tsuboin_hw4.exception.DuplicatePersonException;
 import tsuboin_hw4.person.Faculty;
 import tsuboin_hw4.person.Person;
 import tsuboin_hw4.person.Student;
 import tsuboin_hw4.registration.Course;
 import tsuboin_hw4.registration.Section;
-import tsuboin_hw4.system.RegistrationSystem;
-import java.time.temporal.TemporalField;
 
-import java.sql.SQLOutput;
 import java.time.Year;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.TreeMap;
 /*
  * Narissa Tsuboi
  * CPSC 5011, Seattle University
@@ -105,7 +98,7 @@ public class Tests {
 		System.out.println("Created CPSC-2600 Foundations of Computer Science");
 		System.out.println("Added prerequisite CPSC-1000 Computer Basics");
 		Course Foundations = new Course(SubjectCode.CPSC, 102, "Object " +
-			"Oriented for Dummies",	5);
+			"Oriented for Dummies", 5);
 		System.out.println("Get course code... " + Foundations.getCourseCode());
 		System.out.println("Get course number... " + Foundations.getCourseNum());
 		System.out.println("Get course name... " + Foundations.getCourseName());
@@ -125,7 +118,7 @@ public class Tests {
 
 		System.out.println("**** TEST SECTION CLASS ****");
 		System.out.println("Created Section 1 of CPSC-2600");
-		Section s = new Section(Foundations, 1, Momo, Quarter.RQ, 2019,10,
+		Section s = new Section(Foundations, 1, Momo, Quarter.RQ, 2019, 10,
 			Building.ENGR, 101);
 		System.out.println("Get section course tag... " + s.getSectionCourse());
 		System.out.println("Get section number... " + s.getSection());

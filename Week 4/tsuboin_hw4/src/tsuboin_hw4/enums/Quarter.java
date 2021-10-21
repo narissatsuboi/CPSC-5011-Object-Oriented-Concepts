@@ -14,7 +14,7 @@ package tsuboin_hw4.enums;
  * <li>{@link #SQ}: Spring quarter</li>
  * <li>{@link #RQ}: Summer quarter</li>
  * </ul>
- * 
+ *
  * @author Narissa Tsuboi
  */
-public enum Quarter { FQ, WQ, SQ, RQ }
+public enum Quarter {FQ, WQ, SQ, RQ}

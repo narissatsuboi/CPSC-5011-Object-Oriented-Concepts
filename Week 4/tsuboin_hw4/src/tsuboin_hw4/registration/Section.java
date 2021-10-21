@@ -13,14 +13,14 @@ import tsuboin_hw4.person.Faculty;
 
 /**
  * The Section class holds information about a course section.
- *
+ * <p>
  * course:          course associated with the section
  * section:         section number for the course
  * instructor:      instructor for the section (assume single instructor)
  * term:            quarter and year when the section is offered
  * capacity:        capacity for the section
  * location:        building and room where the section is held (see
- *                  Building enum)
+ * Building enum)
  * For example, CPSC-5011-02: Object-Oriented Concepts
  * course:          CPSC-5011
  * section:         02
@@ -31,86 +31,117 @@ import tsuboin_hw4.person.Faculty;
  *
  * @author Narissa Tsuboi
  */
-public class Section {    
-    
-    /**
-     * Overloaded Section constructor instantiates all section fields
-     * for a given course.
-     *
-     * @param course     The course associated with the section
-     * @param section    The section number for the course
-     * @param instructor The faculty instructor teaching the course
-     * @param quarter    The quarter that the course section is held 
-     * @param year       The year that the course section is held
-     * @param cap        The capacity of the course section
-     * @param bldg       The building that the course section is held
-     * @param room       The room that the course section is held
-     */
-    public Section(Course course, int section, Faculty instructor, Quarter quarter, 
-                    int year, int cap, Building bldg, int room) {
-        this.course =
-            course.getCourseCode().toString() + "-" + course.getCourseNum();
-        this.section = "0" + Integer.toString(section);
-        this.instructor =
-            instructor.getFirstName() + " " + instructor.getLastName();
-        this.term = quarter.name() + " " + year;
-        this.capacity = cap;
-        this.location = bldg.name() + " " + room;
-    }
+public class Section {
 
-    /* Getters */
-    /**
-     * Returns the course (SubjectCode + course number).
-     * @return course, ie CPSC-2630.
-     */
-    public String getSectionCourse() {return this.course;}
+	/**
+	 * Overloaded Section constructor instantiates all section fields
+	 * for a given course.
+	 *
+	 * @param course     The course associated with the section
+	 * @param section    The section number for the course
+	 * @param instructor The faculty instructor teaching the course
+	 * @param quarter    The quarter that the course section is held
+	 * @param year       The year that the course section is held
+	 * @param cap        The capacity of the course section
+	 * @param bldg       The building that the course section is held
+	 * @param room       The room that the course section is held
+	 */
+	public Section(Course course, int section, Faculty instructor, Quarter quarter,
+	               int year, int cap, Building bldg, int room) {
+		this.course =
+			course.getCourseCode().toString() + "-" + course.getCourseNum();
+		this.section = "0" + section;
+		this.instructor =
+			instructor.getFirstName() + " " + instructor.getLastName();
+		this.term = quarter.name() + " " + year;
+		this.capacity = cap;
+		this.location = bldg.name() + " " + room;
+	}
 
-    /**
-     * Returns the section number.
-     * @return section.
-     */
-    public String getSection() {return this.section;}
+	/* Getters */
 
-    /**
-     * Returns the instructor assigned to teach this section.
-     * @return instructor first and last name.
-     */
-    public String getSectionInstructor() {return this.instructor;}
+	/**
+	 * Returns the course (SubjectCode + course number).
+	 *
+	 * @return course, ie CPSC-2630.
+	 */
+	public String getSectionCourse() {
+		return this.course;
+	}
 
-    /**
-     * Returns the section term.
-     * @return term.
-     */
-    public String getSectionTerm() {return this.term;}
+	/**
+	 * Returns the section number.
+	 *
+	 * @return section.
+	 */
+	public String getSection() {
+		return this.section;
+	}
 
-    /**
-     * Returns the section capacity, no maximum set by default.
-     * @return capacity.
-     */
-    public int getSectionCapacity() {return this.capacity;}
+	/**
+	 * Returns the instructor assigned to teach this section.
+	 *
+	 * @return instructor first and last name.
+	 */
+	public String getSectionInstructor() {
+		return this.instructor;
+	}
 
-    /**
-     * Returns the section's location for class meetings.
-     * @return location, ie ENGR 101.
-     */
-    public String getSectionLocation() {return this.location;}
+	/**
+	 * Returns the section term.
+	 *
+	 * @return term.
+	 */
+	public String getSectionTerm() {
+		return this.term;
+	}
 
-    /* Private Fields */
-    /** course */
-    private String course;
+	/**
+	 * Returns the section capacity, no maximum set by default.
+	 *
+	 * @return capacity.
+	 */
+	public int getSectionCapacity() {
+		return this.capacity;
+	}
 
-    /** section */
-    private String section;
+	/**
+	 * Returns the section's location for class meetings.
+	 *
+	 * @return location, ie ENGR 101.
+	 */
+	public String getSectionLocation() {
+		return this.location;
+	}
 
-    /** instructor*/
-    private String instructor;
+	/* Private Fields */
+	/**
+	 * course
+	 */
+	private final String course;
 
-    /** term (see Quarter)*/
-    private String term;
+	/**
+	 * section
+	 */
+	private final String section;
 
-    /** capacity */
-    private int capacity;
+	/**
+	 * instructor
+	 */
+	private final String instructor;
 
-    /** location (see Building)*/
-    private String location;
+	/**
+	 * term (see Quarter)
+	 */
+	private final String term;
+
+	/**
+	 * capacity
+	 */
+	private final int capacity;
+
+	/**
+	 * location (see Building)
+	 */
+	private final String location;
 }

@@ -17,9 +17,9 @@ package tsuboin_hw4.enums;
  * <li>{@link #LECTURE}: Lecturer</li>
  * <li>{@link #ADJUNCT}: Adjunct</li>
  * </ul>
- * 
+ *
  * @author Narissa Tsuboi
  */
 public enum FacultyType {
-    ASSTPROF, ASSOCPROF, PROF, INSTRUCT, SEN_INSTRUCT, LECTURE, ADJUNCT
+	ASSTPROF, ASSOCPROF, PROF, INSTRUCT, SEN_INSTRUCT, LECTURE, ADJUNCT
 }

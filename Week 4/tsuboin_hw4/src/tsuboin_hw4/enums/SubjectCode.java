@@ -14,7 +14,7 @@ package tsuboin_hw4.enums;
  * <li>{@link #CPSC}: Computer Science</li>
  * <li>{@link #MATH}: Mathematics</li>
  * </ul>
- * 
+ *
  * @author Narissa Tsuboi
  */
-public enum SubjectCode { BIOL, CHEM, CPSC, MATH } 
+public enum SubjectCode {BIOL, CHEM, CPSC, MATH}

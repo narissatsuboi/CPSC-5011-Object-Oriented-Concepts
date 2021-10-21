@@ -15,7 +15,7 @@ package tsuboin_hw4.enums;
  * <li>{@link #LEML}: Lemieux Library &amp; McGoldrick Learning Commons</li>
  * <li>{@link #PIGT}: Pigott Building</li>
  * </ul>
- * 
+ *
  * @author Narissa Tsuboi
  */
-public enum Building { ADMN, BANN, ENGR, LEML, PIGT }
+public enum Building {ADMN, BANN, ENGR, LEML, PIGT}

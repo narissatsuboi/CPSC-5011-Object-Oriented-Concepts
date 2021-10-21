@@ -24,6 +24,8 @@ public class IdentificationNumber {
 		return ++current_ID;
 	}
 
-	/**  Stores latest SUID number */
+	/**
+	 * Stores latest SUID number
+	 */
 	static int current_ID = 999999;
 }

@@ -11,26 +11,26 @@ package tsuboin_hw4.exception;
  * a form of Throwable that indicates conditions that a reasonable
  * application might want to catch. This exception is thrown when attempting
  * to find a course that does not exist.</p>
- * 
+ *
  * @author Narissa Tsuboi
  */
 @SuppressWarnings("serial")
 public class CourseNotFoundException extends Exception {
 
-    /**
-     * Overloaded constructor for CourseNotFoundException.
-     *
-     * @param msg string
-     */
-    public CourseNotFoundException(String msg) {
-        super(msg);
-    }
+	/**
+	 * Overloaded constructor for CourseNotFoundException.
+	 *
+	 * @param msg string
+	 */
+	public CourseNotFoundException(String msg) {
+		super(msg);
+	}
 
-    /**
-     * Default constructor for CourseNotFoundException.
-     */
-    public CourseNotFoundException() {
-        this("Course was not found.");
-    }
-    
+	/**
+	 * Default constructor for CourseNotFoundException.
+	 */
+	public CourseNotFoundException() {
+		this("Course was not found.");
+	}
+
 }

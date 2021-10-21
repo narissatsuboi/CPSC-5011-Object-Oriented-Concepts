@@ -7,10 +7,10 @@ package tsuboin_hw4.exception;
  */
 
 /**
- * <p>The class <strong>DuplicatePersonException</strong> and its subclasses are a form of Throwable 
+ * <p>The class <strong>DuplicatePersonException</strong> and its subclasses are a form of Throwable
  * that indicates conditions that a reasonable application might want to catch.
  * This exception is thrown when attempting to add a duplicate person.</p>
- * 
+ *
  * @author Narissa Tsuboi
  */
 @SuppressWarnings("serial")
@@ -18,20 +18,20 @@ package tsuboin_hw4.exception;
 
 public class DuplicatePersonException extends Exception {
 
-    /**
-     * Overloaded constructor for DuplicatePersonException.
-     *
-     * @param msg string
-     */
-    public DuplicatePersonException(String msg) {
-        super(msg);
-    }
+	/**
+	 * Overloaded constructor for DuplicatePersonException.
+	 *
+	 * @param msg string
+	 */
+	public DuplicatePersonException(String msg) {
+		super(msg);
+	}
 
-    /**
-     * Default constructor for DuplicatePersonException.
-     */
-    public DuplicatePersonException() {
-        this("Person has already been added.");
-    }
-    
+	/**
+	 * Default constructor for DuplicatePersonException.
+	 */
+	public DuplicatePersonException() {
+		this("Person has already been added.");
+	}
+
 }
