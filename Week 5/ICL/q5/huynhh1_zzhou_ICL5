@@ -1,0 +1,44 @@
+ICL5
+#5
+a.  @Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+
+    @Override
+	public boolean equals(Object o) {
+		if (o == null) return false;
+        if (!(o instanceof Circle)) 
+            return false;
+        Circle other = (Circle) o;
+		if (this == o && r == other.getRadius()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+b.  @Override
+    public Object clone() throws CloneNotSupportedException {
+        ComplexShape cloned = (ComplexShape)super.clone();
+        for (int i = 0; i < this.shapes.size(); i++){
+            cloned.addShape(this.shapes.get(i).clone());
+        }
+        return cloned;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (!(o instanceof ComplexShape))
+            return false;
+        ComplexShape other = (ComplexShape) o;
+        if (this == o) {
+            for (int i = 0; i < this.shapes.size(); i++){
+                if (!this.shapes.get(i).equals(other.shapes.get(i)))
+                    return false;
+            }
+            return true;
+        }
+        return false;
+    }
