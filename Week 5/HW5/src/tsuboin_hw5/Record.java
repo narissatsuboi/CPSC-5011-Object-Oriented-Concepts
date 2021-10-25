@@ -1,4 +1,4 @@
-package data;
+package tsuboin_hw5;
 
 /**
  * Utility class for Inventory.  Fields are mutable and package-private.
@@ -46,7 +46,7 @@ final class Record {
 	 * Return a shallow copy of this record.
 	 */
 	public Record copy() {
-		return new Record(video,numOwned,numOut,numRentals);
+		return new Record(video, numOwned, numOut, numRentals);
 	}
 
 	/**

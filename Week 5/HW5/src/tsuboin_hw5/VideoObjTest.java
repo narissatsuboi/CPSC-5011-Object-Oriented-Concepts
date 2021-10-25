@@ -1,8 +1,8 @@
-package data;
-
-import static org.junit.Assert.*;
+package tsuboin_hw5;
 
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class VideoObjTest {
 
@@ -29,11 +29,13 @@ public class VideoObjTest {
 		try {
 			new VideoObj("X", 1800, "Y");
 			fail();
-		} catch (IllegalArgumentException e) { }
+		} catch (IllegalArgumentException e) {
+		}
 		try {
 			new VideoObj("X", 5000, "Y");
 			fail();
-		} catch (IllegalArgumentException e) { }
+		} catch (IllegalArgumentException e) {
+		}
 		try {
 			new VideoObj("X", 1801, "Y");
 			new VideoObj("X", 4999, "Y");
@@ -47,15 +49,18 @@ public class VideoObjTest {
 		try {
 			new VideoObj(null, 2002, "Y");
 			fail();
-		} catch (IllegalArgumentException e) { }
+		} catch (IllegalArgumentException e) {
+		}
 		try {
 			new VideoObj("", 2002, "Y");
 			fail();
-		} catch (IllegalArgumentException e) { }
+		} catch (IllegalArgumentException e) {
+		}
 		try {
 			new VideoObj(" ", 2002, "Y");
 			fail();
-		} catch (IllegalArgumentException e) { }
+		} catch (IllegalArgumentException e) {
+		}
 	}
 
 	@Test
@@ -66,9 +71,9 @@ public class VideoObjTest {
 	@Test
 	public void testHashCode() {
 		assertEquals
-		(-1869722747, new VideoObj("None", 2009, "Zebra").hashCode());
+			(-1869722747, new VideoObj("None", 2009, "Zebra").hashCode());
 		assertEquals
-		(2057189520, new VideoObj("Blah", 1954, "Cante").hashCode());
+			(2057189520, new VideoObj("Blah", 1954, "Cante").hashCode());
 	}
 
 	@Test
@@ -84,9 +89,9 @@ public class VideoObjTest {
 	@Test
 	public void testToString() {
 		String s = new VideoObj("A", 2000, "B").toString();
-		assertEquals( "A (2000) : B", s );
+		assertEquals("A (2000) : B", s);
 		s = new VideoObj(" A ", 2000, " B ").toString();
-		assertEquals( "A (2000) : B", s );
+		assertEquals("A (2000) : B", s);
 	}
 
 }
