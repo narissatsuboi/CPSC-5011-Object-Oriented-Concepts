@@ -36,17 +36,30 @@ final class VideoObj implements Comparable<VideoObj> {
 	 * @throws IllegalArgumentException if any object invariant is violated.
 	 */
 	VideoObj(String title, int year, String director) {
-		// TODO: implement VideoObj constructor
-		this.title = null;
-		this.year = 0;
-		this.director = null;
+
+		// Object invariant parameters
+		final int MIN_YEAR = 1800;
+		final int MAX_YEAR = 5000;
+		boolean yearIsValid = year > MIN_YEAR && year < MAX_YEAR;
+
+
+		// Check parameters are valid
+		if (isInvalidString(title) || isInvalidString(director))
+			throw new IllegalArgumentException("Invalid title or director - " +
+				"cannot be empty or null");
+		if (!yearIsValid)
+			throw new IllegalArgumentException("Invalid year.");
+
+		// Assign member fields
+		this.title = title.trim();
+		this.year = year;
+		this.director = director.trim();
 	}
 
 	/**
 	 * Return the value of the attribute.
 	 */
 	public String director() {
-		// TODO: implement director method
 		return this.director;
 	}
 
@@ -54,7 +67,6 @@ final class VideoObj implements Comparable<VideoObj> {
 	 * Return the value of the attribute.
 	 */
 	public String title() {
-		// TODO: implement title method
 		return this.title;
 	}
 
@@ -62,7 +74,6 @@ final class VideoObj implements Comparable<VideoObj> {
 	 * Return the value of the attribute.
 	 */
 	public int year() {
-		// TODO: implement year method
 		return this.year;
 	}
 
@@ -74,8 +85,22 @@ final class VideoObj implements Comparable<VideoObj> {
 	 */
 	@Override
 	public boolean equals(Object thatObject) {
-		// TODO: implement equals method
-		return false;
+		// Check if comparing this to that
+		if (thatObject == this) return true;
+
+		// Type check thatObject + null check
+		if (!(thatObject instanceof VideoObj) || thatObject == null)
+			return false;
+
+		// Cast thatObject to VideoObj
+		VideoObj that = (VideoObj) thatObject;
+
+		// Compare field equality
+		return (
+				this.title.equals(that.title()) &&
+				this.year == that.year &&
+				this.director.equals(that.director())
+				);
 	}
 
 	/**
@@ -84,22 +109,32 @@ final class VideoObj implements Comparable<VideoObj> {
 	 */
 	@Override
 	public int hashCode() {
-		// TODO: implement hashCode method
-		return -1;
+		int hash = 1;        // integer hash code from fields
+		final int F = 31;    // prime multiplication factor
+		hash = this.title.toUpperCase().hashCode();
+		hash = F * hash + Integer.hashCode(year);
+		hash = F * hash + this.director.toUpperCase().hashCode();
+		return hash;
 	}
 
 	/**
 	 * Compares the attributes of this object with those of thatObject, in
 	 * the following order: title, year, director.
+	 * <p>
+	 * //	 * @param that the VideoObj to be compared.
 	 *
-	 * @param that the VideoObj to be compared.
 	 * @return a negative integer, zero, or a positive integer as this
 	 * object is less than, equal to, or greater than that object.
 	 */
 	@Override
 	public int compareTo(VideoObj thatObject) {
-		// TODO: implement compareTo method
-		return -1;
+		int result = this.title.compareTo(thatObject.title());
+		// if result of comparison shows fields are equal, keep comparing
+		if (result == 0)
+			result = Integer.compare(this.year, thatObject.year);
+			if (result == 0)
+				result = this.director.compareTo(thatObject.director());
+		return result; // negative, zero, or positive integer
 	}
 
 	/**
@@ -108,8 +143,21 @@ final class VideoObj implements Comparable<VideoObj> {
 	 */
 	@Override
 	public String toString() {
-		// TODO: implement toString method
-		return "El Mariachi (1996) : Rodriguez";
+//		return "El Mariachi (1996) : Rodriguez";
+		return this.title + " (" + this.year + ") : " + this.director;
 	}
 
+	/* Private Methods */
+
+	/**
+	 * VideoObj object invariant helper function returns true if
+	 * parameter is not null, and not an empty string.
+	 *
+	 * @param s of VideoObj constructor
+	 * @return True if valid title
+	 */
+	boolean isInvalidString(String s) {
+		// Check if null or empty
+		return s == null || s.isBlank() || s.isEmpty();
+	}
 }
