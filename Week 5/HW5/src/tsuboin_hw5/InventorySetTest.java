@@ -1,16 +1,17 @@
-//package tsuboin_hw5;
-//
-//import org.junit.Test;
-//
-//import static org.junit.Assert.*;
-//
-//public class InventorySetTest {
-//
-//	InventorySet s = new InventorySet();
-//	final VideoObj v1 = new VideoObj("A", 2000, "B");
-//	final VideoObj v1copy = new VideoObj("A", 2000, "B");
-//	final VideoObj v2 = new VideoObj("B", 2000, "B");
-//
+package tsuboin_hw5;
+
+import tsuboin_hw5.Record;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class InventorySetTest {
+
+	InventorySet s = new InventorySet();
+	final VideoObj v1 = new VideoObj("A", 2000, "B");
+	final VideoObj v1copy = new VideoObj("A", 2000, "B");
+	final VideoObj v2 = new VideoObj("B", 2000, "B");
+
 //	@Test
 //	public void testAddNumOwned() {
 //		assertEquals(0, s.size());
@@ -34,28 +35,28 @@
 //		} catch (IllegalArgumentException e) {
 //		}
 //	}
-//
-//	@Test
-//	public void testSize() {
-//		assertEquals(0, s.size());
-//		s.addNumOwned(v1, 1);
-//		assertEquals(1, s.size());
-//		s.addNumOwned(v1, 2);
-//		assertEquals(1, s.size());
-//		s.addNumOwned(v2, 1);
-//		assertEquals(2, s.size());
-//		s.addNumOwned(v2, -1);
-//		assertEquals(1, s.size());
-//		s.addNumOwned(v1, -3);
-//		assertEquals(0, s.size());
-//		try {
-//			s.addNumOwned(v1, -3);
-//			fail();
-//		} catch (IllegalArgumentException e) {
-//		}
-//		assertEquals(0, s.size());
-//	}
-//
+
+	@Test
+	public void testSize() {
+		assertEquals(0, s.size());
+		s.addNumOwned(v1, 1);
+		assertEquals(1, s.size());
+		s.addNumOwned(v1, 2);
+		assertEquals(1, s.size());
+		s.addNumOwned(v2, 1);
+		assertEquals(2, s.size());
+		s.addNumOwned(v2, -1);
+		assertEquals(1, s.size());
+		s.addNumOwned(v1, -3);
+		assertEquals(0, s.size());
+		try {
+			s.addNumOwned(v1, -3);
+			fail();
+		} catch (IllegalArgumentException e) {
+		}
+		assertEquals(0, s.size());
+	}
+
 //	@Test
 //	public void testCheckOutCheckIn() {
 //		// TODO: complete testCheckOutCheckIn test
@@ -80,5 +81,5 @@
 //		// inventory.  ToCollection should return a COPY of the records,
 //		// not the records themselves.
 //	}
-//
-//}
+
+}

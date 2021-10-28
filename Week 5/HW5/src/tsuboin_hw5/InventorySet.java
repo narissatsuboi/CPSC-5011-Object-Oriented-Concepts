@@ -31,16 +31,14 @@ final class InventorySet {
 	 * Return the number of Records.
 	 */
 	public int size() {
-		// TODO: implement size method
-		return 0;
+		return data.size();
 	}
 
 	/**
 	 * Return a copy of the record for a given Video; if not present, return <code>null</code>.
 	 */
 	public java.lang.Record get(VideoObj v) {
-		// TODO: implement get method
-		return null;
+		return data.get(v);
 	}
 
 	/**
@@ -50,6 +48,9 @@ final class InventorySet {
 	public Collection<java.lang.Record> toCollection() {
 		// TODO: implement toCollection method
 		// Recall that an ArrayList is a Collection.
+		// iterate through the list
+		// push new Record to Arraylist, get the fields from the current
+		// Record in the map
 		return null;
 	}
 
