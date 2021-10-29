@@ -1,8 +1,6 @@
 package tsuboin_hw5;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * An Inventory implemented using a <code>HashMap&lt;Video, Record&gt;</code>.
@@ -19,7 +17,7 @@ final class InventorySet {
 	/**
 	 * <p><b>Invariant:</b> <code>_data != null</code> </p>
 	 */
-	private final Map<VideoObj, java.lang.Record> data = new HashMap<VideoObj, java.lang.Record>();
+	private final Map<VideoObj, Record> data = new HashMap<VideoObj, Record>();
 
 	/**
 	 * Default constructor.
@@ -36,22 +34,28 @@ final class InventorySet {
 
 	/**
 	 * Return a copy of the record for a given Video; if not present, return <code>null</code>.
+	 * @return Copy of record for Video v.
 	 */
-	public java.lang.Record get(VideoObj v) {
-		return data.get(v);
+	public Record get(VideoObj v) {
+		if (!data.containsKey(v))
+			return null;
+		return data.get(v).copy();
 	}
 
 	/**
 	 * Return a copy of the records as a collection.
 	 * Neither the underlying collection, nor the actual records are returned.
 	 */
-	public Collection<java.lang.Record> toCollection() {
-		// TODO: implement toCollection method
-		// Recall that an ArrayList is a Collection.
-		// iterate through the list
-		// push new Record to Arraylist, get the fields from the current
-		// Record in the map
-		return null;
+	public ArrayList<Record> toCollection() {
+
+		// Stores Record copies
+		ArrayList<Record> recordCollection = new ArrayList<>();
+
+		// Iterate over data hashmap, adding a COPY of each record
+		for (Record r : data.values()) {
+			recordCollection.add(r.copy());
+		}
+		return recordCollection;
 	}
 
 	/**
@@ -71,7 +75,33 @@ final class InventorySet {
 	 *                                  <p><b>Postcondition:</b> changes the record for the video</p>
 	 */
 	public void addNumOwned(VideoObj video, int change) {
-		// TODO: implement addNumOwned method
+		// Video is null
+		if (video == null)
+			throw new IllegalArgumentException("Video cannot be null.");
+
+		// Video isn't already in the inventory and the change is neg
+		if (!data.containsKey(video) && change < 0)
+			throw new IllegalArgumentException("Video does not exist in " +
+				"inventory, cannot remove copies.");
+
+		// Video is in the inventory but trying to remove more than are
+		// owned
+		if (data.containsKey(video) && change < 0
+			&& data.get(video).numOwned < change)
+			throw new IllegalArgumentException("Cannot remove more copies in " +
+				"inventory than are owned");
+		// If video isn't already in the inventory, add a new k:v pair
+		if (!data.containsKey(video))
+			data.put(video, new Record(video, change, 0, 0));
+		// Video is already in the inventory, update numOwned
+		else if (data.containsKey(video)) {
+			Record swap = data.get(video);
+			swap.numOwned += change;
+			data.replace(video, swap);
+		}
+		// Remove k:v pair if v is 0
+		if (data.get(video).numOwned == 0)
+			data.remove(video);
 	}
 
 	/**
@@ -83,7 +113,20 @@ final class InventorySet {
 	 *                                  <p><b>Postcondition:</b> changes the record for the video</p>
 	 */
 	public void checkOut(VideoObj video) {
-		// TODO: implement checkOut method
+
+		// Don't carry that video in inventory
+		if (!data.containsKey(video))
+			throw new IllegalArgumentException("Sorry! We don't carry that " +
+				"title at this time.");
+		Record swap = data.get(video);
+		// Carry the video but no copies available
+		if (swap.numOut == swap.numOwned)
+			throw new IllegalArgumentException("Sorry! That video is " +
+				"unavailable.");
+		// Otherwise, check out the video, update numOut, and store in data
+		swap.numOut++;
+		swap.numRentals++;
+		data.replace(video, swap);
 	}
 
 	/**
@@ -95,15 +138,30 @@ final class InventorySet {
 	 *                                  <p><b>Postcondition:</b> changes the record for the video</p>
 	 */
 	public void checkIn(VideoObj video) {
-		// TODO: implement checkIn method
+		// Don't carry that video in inventory
+		if (!data.containsKey(video))
+			throw new IllegalArgumentException("Sorry! We don't carry that " +
+				"title at this time. Make sure that title isn't from another " +
+				"store!");
+
+		Record swap = data.get(video);
+		// We already have all our copies in inventory
+		if (swap.numOut == 0)
+			throw new IllegalArgumentException("Hm, looks like we already " +
+				"have all our copies of that title accounted for. Make sure " +
+				"that title isn't from another store!");
+
+		// Otherwise, check in the video
+		swap.numOut--;
+		data.replace(video, swap);
 	}
 
-	/**
-	 * Remove all records from the inventory.
-	 * <p><b>Postcondition:</b> <code>size() == 0</code></p>
-	 */
+		/**
+		 * Remove all records from the inventory.
+		 * <p><b>Postcondition:</b> <code>size() == 0</code></p>
+		 */
 	public void clear() {
-		// TODO: implement clear method
+		data.clear();
 	}
 
 	/**
@@ -113,7 +171,7 @@ final class InventorySet {
 	public String toString() {
 		StringBuilder buffer = new StringBuilder();
 		buffer.append("Database:\n");
-		for (java.lang.Record r : data.values()) {
+		for (Record r : data.values()) {
 			buffer.append("  ");
 			buffer.append(r);
 			buffer.append("\n");
