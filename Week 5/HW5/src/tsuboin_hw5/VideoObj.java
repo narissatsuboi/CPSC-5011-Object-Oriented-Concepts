@@ -78,9 +78,10 @@ final class VideoObj implements Comparable<VideoObj> {
 	}
 
 	/**
-	 * Compare the attributes of this object with those of thatObject.
+	 * Test the equality of the attributes of this object with those of
+	 * thatObject.
 	 *
-	 * @param thatObject the Object to be compared.
+	 * @param thatObject the Object to be tested.
 	 * @return deep equality test between this and thatObject.
 	 */
 	@Override
@@ -88,8 +89,8 @@ final class VideoObj implements Comparable<VideoObj> {
 		// Check if comparing this to that
 		if (thatObject == this) return true;
 
-		// Type check thatObject + null check
-		if (!(thatObject instanceof VideoObj) || thatObject == null)
+		// null check
+		if (thatObject == null)
 			return false;
 
 		// Cast thatObject to VideoObj

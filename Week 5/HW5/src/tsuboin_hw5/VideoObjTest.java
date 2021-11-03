@@ -160,5 +160,4 @@ public class VideoObjTest {
 		s = new VideoObj(" A ", 2000, " B ").toString();
 		assertEquals("A (2000) : B", s);
 	}
-
 }

@@ -75,11 +75,11 @@ public class Student extends Person {
 		this.program = program;
 
 		// Assign a StudentYear to UNDERGRADUATES only
-        if (studentType == StudentType.UNDERGRAD) {
-            this.studentYear = calculateStudentYear(year);
-        } else {
-            this.studentYear = null;
-        }
+		if (studentType == StudentType.UNDERGRAD) {
+			this.studentYear = calculateStudentYear(year);
+		} else {
+			this.studentYear = null;
+		}
 		this.startTerm = startTerm;
 		this.email = makeEmail();
 	}
@@ -147,10 +147,11 @@ public class Student extends Person {
 	/**
 	 * toString for Student object.
 	 *
-	 * @param sb StringBuilder.
 	 * @return string representation of student object.
 	 */
-	public String toString(StringBuilder sb) {
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
 		sb.append("Name=").append(this.firstName).append(" ").
 			append(this.lastName);
 		sb.append(", ");
@@ -205,33 +206,33 @@ public class Student extends Person {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date());
 		int month = cal.get(Calendar.MONTH);
-        if (month >= 1 && month <= 3) {
-            nowQuarter = Quarter.WQ;
-        } else if (month >= 4 && month <= 6) {
-            nowQuarter = Quarter.SQ;
-        } else if (month >= 7 && month <= 9) {
-            nowQuarter = Quarter.RQ;
-        } else if (month >= 10) {
-            nowQuarter = Quarter.FQ;
-        } else {
-            nowQuarter = Quarter.FQ;
-        }
+		if (month >= 1 && month <= 3) {
+			nowQuarter = Quarter.WQ;
+		} else if (month >= 4 && month <= 6) {
+			nowQuarter = Quarter.SQ;
+		} else if (month >= 7 && month <= 9) {
+			nowQuarter = Quarter.RQ;
+		} else if (month >= 10) {
+			nowQuarter = Quarter.FQ;
+		} else {
+			nowQuarter = Quarter.FQ;
+		}
 
 		// Determine years since start
 		int now = Year.now().getValue();
 		int yearsSoFar = now - year;
 
 		// Determine StudentYear
-        if ((yearsSoFar == SENIOR)
-            || (this.startTerm == Quarter.FQ && yearsSoFar == JUNIOR)) {
-            studentYear = StudentYear.SENIOR;
-        } else if ((yearsSoFar == JUNIOR)
-            || (this.startTerm == Quarter.FQ) && yearsSoFar == SOPH) {
-            studentYear = StudentYear.JUNIOR;
-        } else if ((yearsSoFar == SOPH)
-            || (this.startTerm == Quarter.FQ) && yearsSoFar == FRESH) {
-            studentYear = StudentYear.SOPHOMORE;
-        }
+		if ((yearsSoFar == SENIOR)
+			|| (this.startTerm == Quarter.FQ && yearsSoFar == JUNIOR)) {
+			studentYear = StudentYear.SENIOR;
+		} else if ((yearsSoFar == JUNIOR)
+			|| (this.startTerm == Quarter.FQ) && yearsSoFar == SOPH) {
+			studentYear = StudentYear.JUNIOR;
+		} else if ((yearsSoFar == SOPH)
+			|| (this.startTerm == Quarter.FQ) && yearsSoFar == FRESH) {
+			studentYear = StudentYear.SOPHOMORE;
+		}
 		return studentYear;
 	}
 

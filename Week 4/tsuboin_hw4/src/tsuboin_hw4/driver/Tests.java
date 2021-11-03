@@ -2,14 +2,17 @@ package tsuboin_hw4.driver;
 
 import org.junit.Test;
 import tsuboin_hw4.enums.*;
+import tsuboin_hw4.exception.CourseNotFoundException;
+import tsuboin_hw4.exception.DuplicateCourseException;
 import tsuboin_hw4.person.Faculty;
 import tsuboin_hw4.person.Person;
 import tsuboin_hw4.person.Student;
 import tsuboin_hw4.registration.Course;
 import tsuboin_hw4.registration.Section;
+import tsuboin_hw4.system.RegistrationSystem;
 
-import java.time.Year;
-import java.util.Map;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 /*
  * Narissa Tsuboi
  * CPSC 5011, Seattle University
@@ -24,117 +27,99 @@ import java.util.Map;
  */
 
 public class Tests {
-	// Arrange
+	// Arrange and populate test Registration System
+	RegistrationSystem rs = new RegistrationSystem();
 
+	/*
+Course: Name=CPSC-3500: Computing Systems, Credits=5,
+Prerequisites=[Name=CPSC-2430: Data Structures, Name=CPSC-2500: Computer Organization]
+ */
+	Course computingSystems = new Course(SubjectCode.CPSC, 3500,
+		"Computing Systems", 5);
+
+	// faculty
+	Faculty momo = new Faculty("Momo", "Haney",
+		FacultyType.PROF, Building.ENGR, 511,
+		"haneym@seattleu.edu");
 
 	@Test
 	public void testPerson() {
-		System.out.println("**** TEST PERSON CLASS ****");
-		System.out.println("Created Person Narissa Tsuboi");
-		Person Narissa = new Person("Narissa", "Tsuboi");
-		System.out.println("Get first name... " + Narissa.getFirstName());
-		System.out.println("Get last name... " + Narissa.getLastName());
-		System.out.println("Get suid..." + Narissa.getSuid());
-		System.out.println("Get Person status..." + Narissa.getStatus());
+		// person superclass
+		Person narissa = new Person("Narissa", "Tsuboi");
+
+		assertEquals("Narissa", narissa.getFirstName());
+		assertEquals("Tsuboi", narissa.getLastName());
+		assertEquals(PersonStatus.ACTIVE, narissa.getStatus());
 	}
 
 	@Test
 	public void testStudent() {
-		System.out.println("**** TEST STUDENT CLASS ****");
-		System.out.println("Created student UNDERGRAD Student Francis Kogge");
-		Student Francis = new Student("Francis", "Kogge",
+		// undergraduate student, senior
+		Student francis = new Student("Francis", "Kogge",
 			StudentType.UNDERGRAD, StudentProgram.BSCS, Quarter.FQ, 2017);
-		System.out.println("Get first name... " + Francis.getFirstName());
-		System.out.println("Get last name... " + Francis.getLastName());
-		System.out.println("Get suid..." + Francis.getSuid());
-		System.out.println("Get Person status..." + Francis.getStatus());
-		System.out.println("Get student type... " + Francis.getStudentType());
-		System.out.println("Get program... " + Francis.getProgram());
-		System.out.println("Get year... " + Francis.getStudentYear());
-		System.out.println("Get start term... " + Francis.getStartTerm());
-		System.out.println();
-		System.out.println("Created student GRAD Student Joanna Mendoza");
-		Student Joanna = new Student("Joanna", "Mendoza",
+		// graduate student
+		Student joanna = new Student("Joanna", "Mendoza",
 			StudentType.GRAD, StudentProgram.MSCS, Quarter.FQ, 2018);
-		System.out.println("Get first name... " + Joanna.getFirstName());
-		System.out.println("Get last name... " + Joanna.getLastName());
-		System.out.println("Get suid..." + Joanna.getSuid());
-		System.out.println("Get Person status..." + Joanna.getStatus());
-		System.out.println("Get student type... " + Joanna.getStudentType());
-		System.out.println("Get program... " + Joanna.getProgram());
-		System.out.println("Get year... " + Joanna.getStudentYear());
-		System.out.println("Get start term... " + Joanna.getStartTerm());
+
+		// Test getters for undergraduate student
+		assertEquals(StudentType.UNDERGRAD, francis.getStudentType());
+		assertEquals(StudentProgram.BSCS, francis.getProgram());
+		assertEquals(StudentYear.SENIOR, francis.getStudentYear());
+		assertEquals(Quarter.FQ, francis.getStartTerm());
+
+		// Test Student Year is null for a grad student
+		assertNull(joanna.getStudentYear());
 	}
 
 	@Test
 	public void testFaculty() {
-		System.out.println("**** TEST FACULTY CLASS ****");
-		System.out.println("Created Faculty Momo Haney");
-		Faculty Momo = new Faculty("Momo", "Haney",
-			FacultyType.PROF, Building.ENGR, 511,
-			"haneym@seattleu.edu");
-		System.out.println("*** Test superclass methods... ***");
-		System.out.println("First name... " + Momo.getFirstName());
-		System.out.println("Get last name... " + Momo.getLastName());
-		System.out.println("Get suid... " + Momo.getSuid());
 
-		System.out.println("*** Test class methods ***");
-		System.out.println("Get FacultyType... " + Momo.getFacultyType());
-		System.out.println("Get Building..." + Momo.getBuilding());
-		System.out.println("Get room... " + Momo.getRoom());
-		System.out.println("Get status... " + Momo.getStatus());
-		System.out.println("Test toString()...");
-		StringBuilder sb = new StringBuilder();
-		System.out.println(Momo.toString(sb));
+
+		// Test Faculty getters
+		assertEquals(FacultyType.PROF, momo.getFacultyType());
+		assertEquals(Building.ENGR, momo.getBuilding());
+		assertEquals(511, momo.getRoom());
 	}
 
 	@Test
 	public void testCourse() {
-		/*
-		 * Course: Name=CPSC-2600: Foundations of Computer Science,
-		 * Credits=5, Prerequisites=[Name=CPSC-1430: Programming and Problem Solving II]
-		 */
-		System.out.println("**** TEST COURSE CLASS ****");
-		System.out.println("Created CPSC-2600 Foundations of Computer Science");
-		System.out.println("Added prerequisite CPSC-1000 Computer Basics");
-		Course Foundations = new Course(SubjectCode.CPSC, 102, "Object " +
-			"Oriented for Dummies", 5);
-		System.out.println("Get course code... " + Foundations.getCourseCode());
-		System.out.println("Get course number... " + Foundations.getCourseNum());
-		System.out.println("Get course name... " + Foundations.getCourseName());
-		System.out.println("Get credits... " + Foundations.getCreditNum());
-		System.out.println("Get prereqs and display... ");
-		Map<SubjectCode, Integer> prs = Foundations.getPrerequisites();
 
+		assertEquals(SubjectCode.CPSC, computingSystems.getCourseCode());
+		assertEquals(3500, computingSystems.getCourseNum());
+		assertEquals("Computing Systems", computingSystems.getCourseName());
+		assertEquals(5, computingSystems.getCreditNum());
 	}
 
 	@Test
 	public void testSection() {
-		Course Foundations = new Course(SubjectCode.CPSC, 2600,
-			"Foundations of Computer Science", 5);
-		Faculty Momo = new Faculty("Momo", "Haney",
-			FacultyType.PROF, Building.ENGR, 511,
-			"haneym@seattleu.edu");
-
-		System.out.println("**** TEST SECTION CLASS ****");
-		System.out.println("Created Section 1 of CPSC-2600");
-		Section s = new Section(Foundations, 1, Momo, Quarter.RQ, 2019, 10,
-			Building.ENGR, 101);
-		System.out.println("Get section course tag... " + s.getSectionCourse());
-		System.out.println("Get section number... " + s.getSection());
-		System.out.println("Get instructor... " + s.getSectionInstructor());
-		System.out.println("Get term... " + s.getSectionTerm());
-		System.out.println("Get capacity... " + s.getSectionCapacity());
-		System.out.println("Get location... " + s.getSectionLocation());
+		Section section = new Section(computingSystems, 1, momo, Quarter.FQ,
+			2017, 30, Building.ENGR, 300);
+		// test section getters
+		assertEquals("CPSC-3500", section.getSectionCourse());
+		assertEquals("01", section.getSection());
+		assertEquals(momo.getFirstName() + " " + momo.getLastName(),
+			section.getSectionInstructor());
+		assertEquals("FQ 2017", section.getSectionTerm());
+		assertEquals(30, section.getSectionCapacity());
+		assertEquals("ENGR 300", section.getSectionLocation());
 	}
 
 	@Test
-	public void testSomething() {
-		int year = 2018;
-		int now = Year.now().getValue();
-		int yearsSoFar = year - now;
-		System.out.println("year: " + year);
-		System.out.println("now: " + now);
-		System.out.println("yearSoFar: " + yearsSoFar);
+	public void testRegistrationSystem()
+		throws DuplicateCourseException, CourseNotFoundException {
+
+		Course cs = new Course(SubjectCode.CPSC, 3500, "Computing Systems", 5);
+		rs.addCourse(SubjectCode.CPSC, 3500, "Computing System",
+			5);
+		rs.addCourse(SubjectCode.CPSC, 2430, "Data " +
+			"Structures", 5);
+		rs.addCourse(SubjectCode.CPSC, 2500, "Computer " +
+			"Organization", 3);
+
+		// add prerequisites
+		rs.addPrerequisite(SubjectCode.CPSC, 3500, SubjectCode.CPSC, 2430);
+		rs.addPrerequisite(SubjectCode.CPSC, 3500, SubjectCode.CPSC, 2500);
+
 	}
+
 }

@@ -113,10 +113,11 @@ public class Course {
 	/**
 	 * toString for Course objects.
 	 *
-	 * @param sb StringBuilder.
 	 * @return string representation of Course object.
 	 */
-	public String toString(StringBuilder sb) {
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
 		sb.append("Name=").append(this.code).append("-").append(this.courseNum);
 		sb.append(": ").append(this.courseName);
 		sb.append(", ");

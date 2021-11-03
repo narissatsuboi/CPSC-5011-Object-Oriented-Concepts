@@ -222,12 +222,10 @@ public class Driver {
 	 */
 	private static void printFaculty(RegistrationSystem system) {
 		Map<String, Faculty> faculty = system.getFaculty();
-		StringBuilder sb = new StringBuilder();
 
 		for (Faculty entry : faculty.values()) {
 			System.out.print("Faculty: ");
-			System.out.println(entry.toString(sb));
-			sb.setLength(0);
+			System.out.println(entry.toString());
 		}
 	}
 
@@ -242,7 +240,7 @@ public class Driver {
 		StringBuilder sb = new StringBuilder();
 		for (Student entry : students.values()) {
 			System.out.print("Student: ");
-			System.out.println(entry.toString(sb));
+			System.out.println(entry.toString());
 			sb.setLength(0);
 		}
 	}
@@ -268,17 +266,14 @@ public class Driver {
 	 */
 	private static void printCourses(RegistrationSystem system) {
 		Map<String, Course> courses = system.getCourses();
-		StringBuilder sb1 = new StringBuilder();
-		StringBuilder sb2 = new StringBuilder();
 
-		for (Course entry : courses.values()) {
+
+		for (Course course : courses.values()) {
 			System.out.print("Course: ");
-			System.out.print(entry.toString(sb1));
+			System.out.print(course.toString());
 			// Prereqs
 			System.out.print("Prerequisites=");
-			System.out.println(system.prerequisitesToString(entry, sb2));
-			sb1.setLength(0);
-			sb2.setLength(0);
+			System.out.println(system.prerequisitesToString(course));
 		}
 	}
 

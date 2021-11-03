@@ -61,9 +61,9 @@ public class RegistrationSystem {
 		String key = firstName + lastName;
 
 		// Check if student already exists in studentMap
-        if (studentMap.containsKey(key)) {
-            throw new DuplicatePersonException();
-        }
+		if (studentMap.containsKey(key)) {
+			throw new DuplicatePersonException();
+		}
 		// Instantiate new student and add to studentMap
 		studentMap.put(key, new Student(firstName, lastName, type, program,
 			quarter, year));
@@ -89,9 +89,9 @@ public class RegistrationSystem {
 		// key to facultyMap
 		String key = firstName + lastName;
 		// Check if faculty already exists in facultyMap
-        if (facultyMap.containsKey(key)) {
-            throw new DuplicatePersonException();
-        }
+		if (facultyMap.containsKey(key)) {
+			throw new DuplicatePersonException();
+		}
 		// Instantiate new Faculty object and add to facultyMap
 		facultyMap.put(key, new Faculty(firstName, lastName,
 			type, bldg, room, email));
@@ -109,9 +109,9 @@ public class RegistrationSystem {
 		throws DuplicateSubjectException {
 
 		// Check if code is already in the subjectMap
-        if (subjectMap.containsKey(code)) {
-            throw new DuplicateSubjectException();
-        }
+		if (subjectMap.containsKey(code)) {
+			throw new DuplicateSubjectException();
+		}
 		// Add new entry to subjectMap
 		subjectMap.put(code, desc);
 	}
@@ -130,9 +130,9 @@ public class RegistrationSystem {
 		// key to courseMap
 		String key = code.name() + "-" + num;
 		// Check if course already exists in courseMap
-        if (courseMap.containsKey(key)) {
-            throw new DuplicateCourseException();
-        }
+		if (courseMap.containsKey(key)) {
+			throw new DuplicateCourseException();
+		}
 		// Instantiate new course and add to courseMap
 		courseMap.put(key, new Course(code, num, name, creditNum));
 	}
@@ -159,9 +159,9 @@ public class RegistrationSystem {
 		boolean prereqCourseExists = courseMap.containsKey(prereqKey);
 
 		// Check that the course and prereq exist
-        if (!courseExists || !prereqCourseExists) {
-            throw new CourseNotFoundException();
-        }
+		if (!courseExists || !prereqCourseExists) {
+			throw new CourseNotFoundException();
+		}
 		// Access course's prequisites and add
 		Course course = courseMap.get(key);
 		course.setPrerequisite(prereqCode, prereqNum);
@@ -197,17 +197,17 @@ public class RegistrationSystem {
 		boolean facultyExists = facultyMap.containsKey(facultyMapKey);
 
 		// Check if course exists and faculty exists
-        if (!courseExists) {
-            throw new CourseNotFoundException();
-        }
-        if (!facultyExists) {
-            throw new PersonNotFoundException();
-        }
+		if (!courseExists) {
+			throw new CourseNotFoundException();
+		}
+		if (!facultyExists) {
+			throw new PersonNotFoundException();
+		}
 		// Check if section exists
 		Course course = courseMap.get(courseMapKey);
-        if (course.getPrerequisites().containsKey(key)) {
-            throw new DuplicateSectionException();
-        }
+		if (course.getPrerequisites().containsKey(key)) {
+			throw new DuplicateSectionException();
+		}
 		// Add section
 		sectionMap.put(key, new Section(courseMap.get(courseMapKey), sectionNum,
 			facultyMap.get(firstName + lastName), quarter, year, cap, bldg,
@@ -230,14 +230,14 @@ public class RegistrationSystem {
 	/**
 	 * toString method for prereq collection
 	 */
-	public String prerequisitesToString(Course course,
-	                                    StringBuilder sb) {
+	public String prerequisitesToString(Course course) {
 		Map<SubjectCode, Integer> prs = course.getPrerequisites();
+		StringBuilder sb = new StringBuilder();
 		SubjectCode code;      // Subject.CPSC
 		int courseNum;         // 2460
 		String courseTag;      // "CPSC-2460" key to courseMap
 		String prName;         //   prereq name
-		int size = prs.size();
+//		int size = prs.size();
 
 		sb.append("[");
 		for (Map.Entry<SubjectCode, Integer> entry : prs.entrySet()) {
@@ -246,7 +246,9 @@ public class RegistrationSystem {
 			courseTag = code.toString() + "-" + courseNum;
 			prName = courseMap.get(courseTag).getCourseName();
 			sb.append("Name=").append(courseTag).append(" : ").append(prName);
-			size--;
+//			size--;
+//			if (size != 0)
+//				sb.append(", ");
 		}
 		sb.append("]");
 		return sb.toString();
@@ -324,4 +326,5 @@ public class RegistrationSystem {
 	 * Section map
 	 */
 	private final Map<String, Section> sectionMap;
+
 }

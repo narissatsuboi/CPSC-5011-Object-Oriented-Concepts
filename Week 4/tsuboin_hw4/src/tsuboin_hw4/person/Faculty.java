@@ -87,10 +87,11 @@ public class Faculty extends Person {
 	/**
 	 * toString for faculty object.
 	 *
-	 * @param sb StringBuilder object
 	 * @return string
 	 */
-	public String toString(StringBuilder sb) {
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
 		sb.append("Name=").append(this.firstName).append(" ").
 			append(this.lastName);
 		sb.append(", ");
