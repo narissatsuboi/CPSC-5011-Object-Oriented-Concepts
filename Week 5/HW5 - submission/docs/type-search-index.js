@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"tsuboin_hw5","l":"InventorySet"},{"p":"tsuboin_hw5","l":"Record"},{"p":"tsuboin_hw5","l":"VideoObj"}];updateSearchResults();

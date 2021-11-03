@@ -1,7 +1,7 @@
 **HW4 Registration System README**
 
-My solution is fully working, and the driver input matches the expected values,
-with exception to Student Year which is based on our current year.
+My solution is working, and the driver input matches the expected values,
+with exception to Student Year which is based on our current year. The only thing I messed up was printing all the prerequisites, when I went back and made updates, I messed up that functionality so it only prints the last prerequisite if there are multiple. 
 
 Justification for Additional Classes
 
@@ -31,5 +31,5 @@ Assumptions
 
 Extra Credit
 
-* Did not do the UML diagram.
+* Did the UML. 
 * See optional Junit testing. 

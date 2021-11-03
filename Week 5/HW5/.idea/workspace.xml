@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8150f758-a539-461c-83d0-02f50bae15ac" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Week 4/ICL/ICL4.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Week 4/ICL/ICL4.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Week 4/ICL/~$ICL4.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Week 4/ICL/~WRL0100.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Week 4/tsuboin_hw4.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../../Week 4/tsuboin_hw4.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Week 4/tsuboin_hw4/src/tsuboin_hw4.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Week 4/tsuboin_hw4/src/tsuboin_hw4/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Week 4/tsuboin_hw4/src/tsuboin_hw4/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HW5.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hamcrest-core-1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/junit-4.12.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/HW5.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/lib/hamcrest-core-1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/lib/junit-4.12.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/tsuboin_hw5.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/tsuboin_hw5/InventorySet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/tsuboin_hw5/InventorySetTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/tsuboin_hw5/Record.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/tsuboin_hw5/RecordTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/tsuboin_hw5/VideoObj.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/tsuboin_hw5/tsuboin_hw5/VideoObjTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tsuboin_hw5.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tsuboin_hw5/InventorySet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tsuboin_hw5/InventorySetTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tsuboin_hw5/Record.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tsuboin_hw5/RecordTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tsuboin_hw5/VideoObj.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tsuboin_hw5/VideoObjTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="20PqtlnIwt4dLWWyUfkPQyxdlRF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HW5 - all code/src" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8150f758-a539-461c-83d0-02f50bae15ac" name="Default Changelist" comment="" />
+      <created>1635956786190</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635956786190</updated>
+      <workItem from="1635956787299" duration="577000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
