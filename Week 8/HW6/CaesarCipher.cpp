@@ -1,5 +1,10 @@
-//
-// Created by nars on 11/16/2021.
-//
+/*
+ * Narissa Tsuboi
+ * CPSC 5011, Seattle University
+ * This is free and unencumbered software released into the public domain.
+ */
+
+// CaesarCipher.cpp
+// Implementation file for the CaesarCipher class.
 
 #include "CaesarCipher.h"
