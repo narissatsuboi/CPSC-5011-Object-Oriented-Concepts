@@ -24,7 +24,8 @@ using namespace std;
  * of characters. For security reasons, the CaesarCipher object only stores
  * its shift, not the input or output strings.
  *
- * PER SLACK DIRECTION, ONLY SHIFT IS STORED IN THE CC.
+ * PER SLACK DIRECTION, ONLY SHIFT IS STORED IN THE CC. Follows Principle of
+ * Single Responsibility.
  */
 class CaesarCipher
 {
@@ -44,17 +45,17 @@ public:
      * Encrypts given string.
      * @return string, encrypted text.
      */
-    string encrypt(string);
+    string encrypt(const string&);
 
     /**
      * Decrypts given string.
      * @return string, decrypted text.
      */
-    string decrypt(string);
+    string decrypt(const string&);
 
     /**
      * Assignment operator
-     * @return
+     * @return *this
      */
     CaesarCipher& operator = (const CaesarCipher &);
 
@@ -72,7 +73,7 @@ public:
      *
      * @return true, if shift fields are equal.
      */
-    bool operator == (const CaesarCipher &);
+    bool operator == (const CaesarCipher &) const;
 
     /**
      * Less than relational operator checks that the left operand CaesarCipher
@@ -80,7 +81,7 @@ public:
      *
      * @return true, if left shift is LESS than the right.
      */
-    bool operator < (const CaesarCipher &);
+    bool operator < (const CaesarCipher &) const;
 
     /**
      * Greater than relational operator checks that the right operand
@@ -88,11 +89,16 @@ public:
      *
      * @return true, if right shift is GREATER than the left.
      */
-    bool operator > (const CaesarCipher &);
+    bool operator > (const CaesarCipher &) const;
 
-    // TODO POST AND PREFIX OPERATORS
-    CaesarCipher& operator ++ ();
-    CaesarCipher operator ++ (int);
+    /**
+     * Pre and post fix increment operators (for the shift field).
+     * @return a pointer to this object
+     */
+    CaesarCipher& operator ++ ();   // prefix
+    CaesarCipher operator ++ (int); // postfix
+
+    static bool isSeeded;  // seed the random object once
 
 private:
     int shift; // represents fixed # of positions along the alphabet
@@ -111,7 +117,7 @@ private:
      * @param bool encrypt = true, decrypt = false
      * @return string, transformed
      */
-    string encryptDecrypt(string, bool);
+    string encryptDecrypt(const string&, bool);
 
     /**
      * Checks that characters in string are within the ASCII character range
@@ -120,7 +126,7 @@ private:
      * @param int, ASCII character decimal value
      * @return true, if ASCII character decimal value in range
      */
-    bool isPositionInRange(int);
+    bool isPositionInRange(int) const;
 };
 
 #endif //HW6_CAESARCIPHER_H

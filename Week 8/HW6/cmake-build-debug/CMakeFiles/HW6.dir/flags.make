@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = 
 
-CXX_FLAGS = -g -std=gnu++1z
+CXX_FLAGS =  -std=c++17 -W -Werror -Wall -pedantic -g -std=gnu++1z
 
