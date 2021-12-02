@@ -12,10 +12,6 @@
 
 #include "CaesarCipher.h"
 #include <ctime>         // for srand()
-#include <stdexcept>
-#include <iostream>
-
-
 
 // *** Public *** //
 
@@ -27,59 +23,65 @@ CaesarCipher::CaesarCipher() {
 }
 
 // Copy constructor
-CaesarCipher::CaesarCipher(const CaesarCipher& copy) {
+CaesarCipher::CaesarCipher(const CaesarCipher &copy) {
     this->shift = copy.shift;
 }
 
 //encrypt
-string CaesarCipher::encrypt(const string& s) {
+string CaesarCipher::encrypt(const string &s) {
     return encryptDecrypt(s, true);
 }
 
 //decrypt
-string CaesarCipher::decrypt(const string& s) {
+string CaesarCipher::decrypt(const string &s) {
     return encryptDecrypt(s, false);
 }
 
 // Assignment operator
-CaesarCipher &CaesarCipher::operator=(const CaesarCipher& right) {
+CaesarCipher &CaesarCipher::operator=(const CaesarCipher &right) {
     if (this != &right)
         this->shift = right.shift;
     return *this;
 }
 
 // Binary addition operator
-CaesarCipher CaesarCipher::operator+(const CaesarCipher& right) {
+CaesarCipher CaesarCipher::operator+(const CaesarCipher &right) {
     CaesarCipher temp;
     this->shift += right.shift;
     return temp;
 }
 
 // Equality operator
-bool CaesarCipher::operator==(const CaesarCipher& other) const {
+bool CaesarCipher::operator==(const CaesarCipher &other) const {
     return this->shift == other.shift;
 }
 
 // Less than operator
-bool CaesarCipher::operator<(const CaesarCipher& other) const {
+bool CaesarCipher::operator<(const CaesarCipher &other) const {
     return this->shift < other.shift;
 }
 
 // Greater than operator
-bool CaesarCipher::operator>(const CaesarCipher& other) const {
+bool CaesarCipher::operator>(const CaesarCipher &other) const {
     return this->shift > other.shift;
 }
 
 // Pre fix operator
 CaesarCipher &CaesarCipher::operator++() {
     this->shift++;
+    if (this->shift == OFFSET_MAX)  // Adjust char position if 127
+        this->shift = OFFSET_MIN;
+
     return *this;
 }
 
 // Post fix operator
 CaesarCipher CaesarCipher::operator++(int) {
     CaesarCipher temp = *this;
-    ++temp.shift;
+    if (this->shift == OFFSET_MAX)  // Adjust char position if 127
+        this->shift = OFFSET_MIN;
+    else
+        ++*this;
     return temp;
 }
 
@@ -94,33 +96,36 @@ int CaesarCipher::getShift() {
         isSeeded = true;
     }
     // Generate and return random shift value
-    return (rand() % (OFFSET_MAX - OFFSET_MIN + 1)) + OFFSET_MIN;
+    return (rand() % (OFFSET_MAX - OFFSET_MIN + 1));
 }
 
 //encryptDecrypt
-string CaesarCipher::encryptDecrypt(const string& s, bool encrypt) {
+string CaesarCipher::encryptDecrypt(const string &s, bool encrypt) {
     string result;                                  // Holds transformed string
-    for (unsigned char ch: s) {
+    for (char ch: s) {
         int idx = ch, chpos;
 
+        // Check character in range
+//        if (!isPositionInRange(idx)) {
+//            throw invalid_argument("String to be encrypted has "
+//                                   "unrecognized character " + string(1,idx));
+//        }
+
         if (encrypt) {
-            // Check character in range
-            if (!isPositionInRange(int(ch))) {
-                throw invalid_argument("String to be encrypted has "
-                                       "unrecognized character " + string(1, ch));
-            }
+
             chpos = idx + this->shift;
-            if (chpos > OFFSET_MAX)
+            if (chpos > OFFSET_MAX) { // Adjust char position if 127+
                 chpos = OFFSET_MIN + (chpos - OFFSET_MAX);
+            }
+
         } else { // decrypt
             chpos = idx - this->shift;
-            if (chpos < OFFSET_MIN)
+
+            if (chpos < OFFSET_MIN) // Adjust char position if < 32
                 chpos = OFFSET_MAX - (OFFSET_MIN - chpos);
         }
         result += char(chpos);
-        cout << chpos << " ";
     }
-    cout << result << endl;
     return result;
 }
 

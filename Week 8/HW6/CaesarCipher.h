@@ -12,6 +12,7 @@
 #define HW6_CAESARCIPHER_H
 
 #include <string>
+
 using namespace std;
 
 /**
@@ -45,19 +46,19 @@ public:
      * Encrypts given string.
      * @return string, encrypted text.
      */
-    string encrypt(const string&);
+    string encrypt(const string &);
 
     /**
      * Decrypts given string.
      * @return string, decrypted text.
      */
-    string decrypt(const string&);
+    string decrypt(const string &);
 
     /**
      * Assignment operator
      * @return *this
      */
-    CaesarCipher& operator = (const CaesarCipher &);
+    CaesarCipher &operator=(const CaesarCipher &);
 
     /**
      * Addition operator creates a new CaesarCipher with a shift equal
@@ -65,7 +66,7 @@ public:
      *
      * @return CaesarCipher, new cipher.
      */
-    CaesarCipher operator + (const CaesarCipher &);
+    CaesarCipher operator+(const CaesarCipher &);
 
     /**
      * Equality operator checks the equality of the shift values of two
@@ -73,7 +74,7 @@ public:
      *
      * @return true, if shift fields are equal.
      */
-    bool operator == (const CaesarCipher &) const;
+    bool operator==(const CaesarCipher &) const;
 
     /**
      * Less than relational operator checks that the left operand CaesarCipher
@@ -81,7 +82,7 @@ public:
      *
      * @return true, if left shift is LESS than the right.
      */
-    bool operator < (const CaesarCipher &) const;
+    bool operator<(const CaesarCipher &) const;
 
     /**
      * Greater than relational operator checks that the right operand
@@ -89,14 +90,21 @@ public:
      *
      * @return true, if right shift is GREATER than the left.
      */
-    bool operator > (const CaesarCipher &) const;
+    bool operator>(const CaesarCipher &) const;
 
     /**
-     * Pre and post fix increment operators (for the shift field).
-     * @return a pointer to this object
+     * Prefix increment operator. If incremented shift field is out of range,
+     * adjusts value.
+     * @return CaesarCipher object pointer
      */
-    CaesarCipher& operator ++ ();   // prefix
-    CaesarCipher operator ++ (int); // postfix
+    CaesarCipher &operator++();   // prefix
+
+    /**
+     * Postfix increment operator. If incremented shift field is out of range,
+     * adjusts value.
+     * @return CaesarCipher object
+     */
+    CaesarCipher operator++(int); // postfix
 
     static bool isSeeded;  // seed the random object once
 
@@ -117,7 +125,7 @@ private:
      * @param bool encrypt = true, decrypt = false
      * @return string, transformed
      */
-    string encryptDecrypt(const string&, bool);
+    string encryptDecrypt(const string &, bool);
 
     /**
      * Checks that characters in string are within the ASCII character range
